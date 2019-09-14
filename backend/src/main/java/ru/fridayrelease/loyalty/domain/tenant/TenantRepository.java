@@ -8,7 +8,9 @@ import java.util.Optional;
  */
 public interface TenantRepository {
 
+    @Nonnull
     Optional<Tenant> findByOgrn(@Nonnull String ogrn);
 
+    @Nonnull
     Optional<Tenant> findById(@Nonnull String id);
 }
