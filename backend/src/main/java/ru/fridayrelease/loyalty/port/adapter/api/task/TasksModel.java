@@ -42,7 +42,7 @@ public class TasksModel {
         @Nonnull
         private String category;
 
-        public TaskModel(@Nonnull Task task) {
+        TaskModel(@Nonnull Task task) {
             this.id = task.getId();
             this.title = task.getTitle();
             this.state = task.getState().name();

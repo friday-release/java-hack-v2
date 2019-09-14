@@ -32,6 +32,8 @@ public class Task {
     @Nonnull
     private TaskState state;
 
+    private long points;
+
     @Nonnull
     private String tenantId;
 

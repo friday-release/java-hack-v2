@@ -23,21 +23,15 @@ public class MongoTenantRepository implements TenantRepository {
     @Nonnull
     private final MongoTemplate mongoTemplate;
 
-    @Override
-    @Nonnull
-    public Optional<Tenant> findByOgrn(@Nonnull String ogrn) {
-        Criteria ogrnCriteria = where("ogrn").is(ogrn);
-        var tenant = this.mongoTemplate
-                .find(query(ogrnCriteria), Tenant.class)
-                .stream()
-                .findFirst();
-        return tenant;
-    }
-
     @Nonnull
     @Override
     public Optional<Tenant> findById(@Nonnull String id) {
         var tenant = this.mongoTemplate.findById(id, Tenant.class);
         return Optional.ofNullable(tenant);
+    }
+
+    @Override
+    public void add(@Nonnull Tenant tenant) {
+        this.mongoTemplate.save(tenant);
     }
 }

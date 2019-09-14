@@ -4,9 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.fridayrelease.loyalty.application.TaskService;
 import ru.fridayrelease.loyalty.domain.task.TaskRepository;
+import ru.fridayrelease.loyalty.domain.task.TaskState;
+import ru.fridayrelease.loyalty.domain.task.exception.TaskNotFoundException;
 
 import javax.annotation.Nonnull;
 import java.util.stream.Collectors;

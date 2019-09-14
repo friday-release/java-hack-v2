@@ -2,6 +2,7 @@ package ru.fridayrelease.loyalty.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.fridayrelease.loyalty.domain.task.TaskRepository;
 import ru.fridayrelease.loyalty.domain.task.TaskState;
 import ru.fridayrelease.loyalty.domain.task.exception.TaskNotFoundException;
@@ -24,9 +25,10 @@ public class TaskService {
     @Nonnull
     private final TenantRepository tenantRepository;
 
-    public void markAsCompleted(@Nonnull String ogrn, @Nonnull String taskId) {
+    @Transactional
+    public void markAsCompleted(@Nonnull String tenantId, @Nonnull String taskId) {
         var tenant = this.tenantRepository
-                .findByOgrn(ogrn)
+                .findById(tenantId)
                 .orElseThrow(TenantNotFoundException::new);
         var task = this.taskRepository
                 .findById(taskId)
@@ -36,5 +38,8 @@ public class TaskService {
             throw new WrongTenantException();
         }
         task.transitTo(TaskState.COMPLETED);
+        taskRepository.add(task);
+        tenant.setPoints(tenant.getPoints() + task.getPoints());
+        tenantRepository.add(tenant);
     }
 }

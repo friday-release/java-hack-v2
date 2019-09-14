@@ -59,6 +59,7 @@ public class InitialDataLoader implements CommandLineRunner {
 
         var task1 = Task.builder()
                 .title("Пригласить друга")
+                .points(300)
                 .state(TaskState.IN_PROGRESS)
                 .tenantId(tenantId)
                 .description("Пригласи 3 друга, и, когда они совершит 30 сделок," +
