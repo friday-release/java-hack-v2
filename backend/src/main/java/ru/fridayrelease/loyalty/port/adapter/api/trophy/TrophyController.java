@@ -23,7 +23,7 @@ public class TrophyController {
     public ResponseEntity getAllTrophies() {
         var trophies = this.trophyRepository
                 .findAll().stream()
-                .map(TrophyModel::new)
+                .map(TrophiesModel.TrophyModel::new)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(trophies);
     }

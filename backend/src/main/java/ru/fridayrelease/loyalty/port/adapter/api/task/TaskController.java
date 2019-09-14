@@ -23,7 +23,7 @@ public class TaskController {
     public ResponseEntity<TasksModel> getAllTasks() {
         var tasks = taskService
                 .findAll().stream()
-                .map(TaskModel::new)
+                .map(TasksModel.TaskModel::new)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(new TasksModel(tasks));
     }

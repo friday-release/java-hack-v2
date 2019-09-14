@@ -16,7 +16,7 @@ public class TrophiesModel {
     private List<TrophyModel> trophies;
 
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    public class TrophyModel {
+    public static class TrophyModel {
 
         private final String id;
 

@@ -17,7 +17,7 @@ public class TasksModel {
     private final List<TaskModel> tasks;
 
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-    public class TaskModel {
+    public static class TaskModel {
 
         private final String id;
 
