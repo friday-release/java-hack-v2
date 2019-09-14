@@ -1,6 +1,7 @@
 package ru.fridayrelease.loyalty.dao;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
 
 import java.util.UUID;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
 @ToString
 public class Achievement {
 
+    @Id
     private String id;
 
     private String name;

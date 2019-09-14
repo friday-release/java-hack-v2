@@ -25,7 +25,7 @@ public class MongoAchievementService implements AchievementService {
     @Override
     public List<Achievement> getAllAchievements() {
         Aggregation aggregationPipeline = Aggregation.newAggregation(
-                sort(Sort.Direction.ASC, "price")
+                sort(Sort.Direction.ASC, "name")
         );
         return this.mongoTemplate.aggregate(aggregationPipeline, Achievement.class, Achievement.class)
                 .getMappedResults();

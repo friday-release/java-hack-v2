@@ -23,10 +23,10 @@ public class InitialDataLoader implements CommandLineRunner {
         log.info("Filling initial data");
 
         Achievement ach1 = Achievement.builder()
-                .name("Столовая ИУ. Элитная")
+                .name("Месяц бесплатного использования смс-уведомлений")
                 .build();
         Achievement ach2 = Achievement.builder()
-                .name("ГЗ Главная")
+                .name("1000р на счет")
                 .build();
 
         this.mongoTemplate.save(ach1);
