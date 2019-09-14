@@ -35,5 +35,7 @@ dependencies {
     compile "com.google.code.findbugs:jsr305:3.0.2"
     compile "org.apache.commons:commons-lang3:3.8.1"
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+    testRuntime "de.flapdoodle.embed:de.flapdoodle.embed.mongo"
 }
