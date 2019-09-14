@@ -2,8 +2,12 @@ package ru.fridayrelease.loyalty.port.adapter.api.trophy;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.AllArgsConstructor;
+import org.springframework.data.annotation.Id;
 import ru.fridayrelease.loyalty.domain.trophy.Trophy;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -18,13 +22,41 @@ public class TrophiesModel {
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
     public static class TrophyModel {
 
-        private final String id;
+        @Id
+        private String id;
 
-        private final String name;
+        @Nonnull
+        private String title;
 
-        public TrophyModel(Trophy trophy) {
+        @Nonnull
+        private String state;
+
+        @Nonnull
+        private String description;
+
+        @Nullable
+        private LocalDateTime expirationDate;
+
+        @Nullable
+        private String imgUrl;
+
+        private int points;
+
+        @Nonnull
+        private String category;
+
+        @Nullable
+        private String productUrl;
+
+        public TrophyModel(@Nonnull Trophy trophy) {
             this.id = trophy.getId();
-            this.name = trophy.getTitle();
+            this.title = trophy.getTitle();
+            this.state = trophy.getState().name();
+            this.description = trophy.getDescription();
+            this.expirationDate = trophy.getExpirationDate();
+            this.imgUrl = trophy.getImageUrl();
+            this.category = trophy.getCategory();
+            this.productUrl = trophy.getProductUrl();
         }
     }
 }
