@@ -43,11 +43,14 @@ public class Task {
     @Nullable
     private List<String> conditions;
 
+    // TODO make enum
     @Nonnull
     private String category;
 
     @Builder
     public Task(@Nonnull String title,
+                @Nonnull TaskState state,
+                @Nonnull String tenantId,
                 @Nonnull String description,
                 @Nullable Progress progress,
                 @Nullable List<String> conditions,
@@ -55,6 +58,8 @@ public class Task {
         this.id = UUID.randomUUID().toString();
 
         this.title = title;
+        this.tenantId = tenantId;
+        this.state = state;
         this.description = description;
         this.progress = progress;
         this.conditions = conditions;
@@ -82,6 +87,7 @@ public class Task {
      * прогресс выполнения задачи: (4/30)
      */
     @Data
+    @Builder
     public static class Progress {
         private int current;
 

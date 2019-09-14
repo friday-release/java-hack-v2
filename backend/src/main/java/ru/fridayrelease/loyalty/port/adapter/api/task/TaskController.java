@@ -25,9 +25,10 @@ public class TaskController {
     private final TaskService taskService;
 
     @GetMapping("/api/tenants/{tenantId}/tasks")
-    public ResponseEntity<TasksModel> getAllTasks() {
+    public ResponseEntity<TasksModel> getAllTasks(@PathVariable("tenantId") String ogrn) {
         var tasks = taskRepository
                 .findAll().stream()
+                .filter(task -> task.getTenantId().equals(ogrn))
                 .map(TasksModel.TaskModel::new)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(new TasksModel(tasks));

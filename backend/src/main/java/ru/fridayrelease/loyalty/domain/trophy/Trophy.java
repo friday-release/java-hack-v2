@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import ru.fridayrelease.loyalty.domain.task.TaskState;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -14,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
- * Награда, тенант покупает ее за points
+ * Награда, тенант покупает ее за pointsCost
  *
  * @author avbelyaev
  */
@@ -34,7 +33,7 @@ public class Trophy {
     private String tenantId;
 
     @Nonnull
-    private TaskState state;
+    private TrophyState state;
 
     @Nonnull
     private String description;
@@ -45,7 +44,7 @@ public class Trophy {
     @Nullable
     private String imageUrl;
 
-    private int points;
+    private int pointsCost;
 
     @Nonnull
     private String category;
@@ -56,11 +55,11 @@ public class Trophy {
     @Builder
     public Trophy(@Nonnull String title,
                   @Nonnull String tenantId,
-                  @Nonnull TaskState state,
+                  @Nonnull TrophyState state,
                   @Nonnull String description,
                   @Nullable LocalDateTime expirationDate,
                   @Nullable String imageUrl,
-                  int points,
+                  int pointsCost,
                   @Nonnull String category,
                   @Nullable String productUrl) {
         this.id = UUID.randomUUID().toString();
@@ -71,7 +70,7 @@ public class Trophy {
         this.description = description;
         this.expirationDate = expirationDate;
         this.imageUrl = imageUrl;
-        this.points = points;
+        this.pointsCost = pointsCost;
         this.category = category;
         this.productUrl = productUrl;
     }

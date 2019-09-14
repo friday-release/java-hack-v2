@@ -57,6 +57,7 @@ public class TrophiesModel {
             this.imgUrl = trophy.getImageUrl();
             this.category = trophy.getCategory();
             this.productUrl = trophy.getProductUrl();
+            this.points = trophy.getPointsCost();
         }
     }
 }
