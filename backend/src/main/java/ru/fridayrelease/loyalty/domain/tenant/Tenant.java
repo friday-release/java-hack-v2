@@ -11,6 +11,8 @@ import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
+ * ИП, лицо выполняющее задания
+ *
  * @author avbelyaev
  */
 @Data
@@ -35,6 +37,7 @@ public class Tenant {
                   @Nonnull String ogrn,
                   long points) {
         this.id = UUID.randomUUID().toString();
+
         this.profile = profile;
         this.ogrn = ogrn;
         this.points = points;
