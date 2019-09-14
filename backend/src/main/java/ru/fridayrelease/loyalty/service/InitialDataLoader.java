@@ -6,7 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
-import ru.fridayrelease.loyalty.dao.Achievement;
+import ru.fridayrelease.loyalty.dao.trophy.Trophy;
 
 /**
  * @author avbelyaev
@@ -22,17 +22,17 @@ public class InitialDataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Filling initial data");
 
-        Achievement ach1 = Achievement.builder()
+        Trophy trophy1 = Trophy.builder()
                 .name("Месяц бесплатного использования смс-уведомлений")
                 .build();
-        Achievement ach2 = Achievement.builder()
+        Trophy trophy2 = Trophy.builder()
                 .name("1000р на счет")
                 .build();
 
-        this.mongoTemplate.save(ach1);
-        this.mongoTemplate.save(ach2);
+        this.mongoTemplate.save(trophy1);
+        this.mongoTemplate.save(trophy2);
 
-        long count = this.mongoTemplate.count(new Query(), Achievement.class);
+        long count = this.mongoTemplate.count(new Query(), Trophy.class);
         log.info("DB has been filled with {} entries", count);
     }
 }

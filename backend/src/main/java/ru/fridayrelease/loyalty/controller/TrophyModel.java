@@ -1,20 +1,20 @@
 package ru.fridayrelease.loyalty.controller;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import ru.fridayrelease.loyalty.dao.Achievement;
+import ru.fridayrelease.loyalty.dao.trophy.Trophy;
 
 /**
  * @author avbelyaev
  */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class AchievementModel {
+public class TrophyModel {
 
     private final String id;
 
     private final String name;
 
-    public AchievementModel(Achievement achievement) {
-        this.id = achievement.getId();
-        this.name = achievement.getName();
+    public TrophyModel(Trophy trophy) {
+        this.id = trophy.getId();
+        this.name = trophy.getName();
     }
 }
