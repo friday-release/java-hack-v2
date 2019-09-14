@@ -1,14 +1,10 @@
 package ru.fridayrelease.loyalty.domain.tenant;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
-import java.util.UUID;
 
 /**
  * ИП, лицо выполняющее задания
@@ -19,9 +15,11 @@ import java.util.UUID;
 @EqualsAndHashCode
 @ToString
 @Document(collection = "tenants")
+@Builder
 public class Tenant {
 
     @Id
+    @Builder.Default
     private String id;
 
     @Nonnull
@@ -32,18 +30,9 @@ public class Tenant {
 
     private long points;
 
-    @Builder
-    public Tenant(@Nonnull Profile profile,
-                  @Nonnull String ogrn,
-                  long points) {
-        this.id = UUID.randomUUID().toString();
-
-        this.profile = profile;
-        this.ogrn = ogrn;
-        this.points = points;
-    }
 
     @Builder
+    @Getter
     public static class Profile {
 
         private String firstName;

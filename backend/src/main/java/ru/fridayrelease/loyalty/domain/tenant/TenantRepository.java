@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface TenantRepository {
 
     Optional<Tenant> findByOgrn(@Nonnull String ogrn);
+
+    Optional<Tenant> findById(@Nonnull String id);
 }

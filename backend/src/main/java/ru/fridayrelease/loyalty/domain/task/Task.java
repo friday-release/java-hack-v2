@@ -11,7 +11,6 @@ import ru.fridayrelease.loyalty.domain.task.exception.InvalidTaskStateException;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author avbelyaev
@@ -20,9 +19,11 @@ import java.util.UUID;
 @EqualsAndHashCode
 @ToString
 @Document(collection = "tasks")
+@Builder
 public class Task {
 
     @Id
+    @Builder.Default
     private String id;
 
     @Nonnull
@@ -46,26 +47,6 @@ public class Task {
     // TODO make enum
     @Nonnull
     private String category;
-
-    @Builder
-    public Task(@Nonnull String title,
-                @Nonnull TaskState state,
-                @Nonnull String tenantId,
-                @Nonnull String description,
-                @Nullable Progress progress,
-                @Nullable List<String> conditions,
-                @Nonnull String category) {
-        this.id = UUID.randomUUID().toString();
-
-        this.title = title;
-        this.tenantId = tenantId;
-        this.state = state;
-        this.description = description;
-        this.progress = progress;
-        this.conditions = conditions;
-        this.category = category;
-
-    }
 
     protected Task() {
         // required for mongo

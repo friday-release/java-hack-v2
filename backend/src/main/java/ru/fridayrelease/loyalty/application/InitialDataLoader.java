@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 import ru.fridayrelease.loyalty.domain.task.Task;
 import ru.fridayrelease.loyalty.domain.task.TaskState;
+import ru.fridayrelease.loyalty.domain.tenant.Tenant;
 import ru.fridayrelease.loyalty.domain.trophy.Trophy;
 import ru.fridayrelease.loyalty.domain.trophy.TrophyState;
 
@@ -28,8 +29,19 @@ public class InitialDataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Filling initial data");
 
-        // TODO make ogrn
-        var tenantId = "123";
+        var tenant = Tenant.builder()
+                .ogrn("11111111111111")
+                .points(0)
+                .profile(
+                        Tenant.Profile.builder()
+                                .firstName("Ivan")
+                                .lastName("Petrov")
+                                .build()
+                )
+                .build();
+        tenant = mongoTemplate.save(tenant);
+
+        var tenantId = tenant.getId();
 
         var trophy1 = Trophy.builder()
                 .title("Месяц бесплатного использования смс-уведомлений")
