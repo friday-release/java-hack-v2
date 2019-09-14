@@ -1,4 +1,4 @@
-package ru.fridayrelease.loyalty.dao.trophy;
+package ru.fridayrelease.loyalty.domain.trophy;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
@@ -21,12 +22,12 @@ public class Trophy {
     @Id
     private String id;
 
-    private String name;
+    private String title;
 
     @Builder
-    public Trophy(String name) {
-        this.name = name;
+    public Trophy(@Nonnull String title) {
         this.id = UUID.randomUUID().toString();
+        this.title = title;
     }
 
     protected Trophy() {
