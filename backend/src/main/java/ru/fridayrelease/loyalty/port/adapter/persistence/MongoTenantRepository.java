@@ -24,6 +24,7 @@ public class MongoTenantRepository implements TenantRepository {
     private final MongoTemplate mongoTemplate;
 
     @Override
+    @Nonnull
     public Optional<Tenant> findByOgrn(@Nonnull String ogrn) {
         Criteria ogrnCriteria = where("ogrn").is(ogrn);
         var tenant = this.mongoTemplate
@@ -31,5 +32,12 @@ public class MongoTenantRepository implements TenantRepository {
                 .stream()
                 .findFirst();
         return tenant;
+    }
+
+    @Nonnull
+    @Override
+    public Optional<Tenant> findById(@Nonnull String id) {
+        var tenant = this.mongoTemplate.findById(id, Tenant.class);
+        return Optional.ofNullable(tenant);
     }
 }
