@@ -6,10 +6,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -37,15 +36,17 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
    * when initial state username is not null, submit the form to load repos
    */
   componentDidMount() {
-    const { username, onSubmitForm } = this.props;
+    const {username, onSubmitForm, fetchTrophies} = this.props;
     if (username && username.trim().length > 0) {
       onSubmitForm();
     }
+    fetchTrophies();
   }
 
   render() {
-    const {classes, completedTrophies, availableTrophies, error, repos, username, onChangeUsername, onSubmitForm} = this.props;
-   
+    const {classes, completedTrophies, availableTrophies, error, repos, onChangeUsername, onSubmitForm} = this.props;
+
+    const username = 'Рога и копыта';
     return (
       <div style={{display: 'flex', width: "100%", position: "relative", height: "500"}}>
         <Paper className={classes.root}>
@@ -54,7 +55,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                     <div className="item_header__content-left-side">Карма</div>
                   </div>
                 </div>
-               <div><b>ИП</b>: <a >Рога и копыта</a></div>
+          <div><b>ИП</b>: <a> {username}</a></div>
                <div><b>Объём доступных средств</b>: 90000 p</div>
                <div><b>Расходы по картам</b>: 100000 p</div>
             </Paper>
@@ -67,7 +68,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                <div><b>ИП</b>: <a >Рога и копыта</a></div>
                <div><b>Объём доступных средств</b>: 90000 p</div>
                <div><b>Расходы по картам</b>: 100000 p</div>
-          </Paper> 
+          </Paper>
           <Paper className={classes.root}>
                 <Typography variant="h3" component="h2">
                   Награды
@@ -133,7 +134,8 @@ HomePage.propTypes = {
   repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onSubmitForm: PropTypes.func,
   username: PropTypes.string,
-  onChangeUsername: PropTypes.func
+  onChangeUsername: PropTypes.func,
+  fetchTrophies: PropTypes.func,
 };
 
 export default withStyles(styles)(HomePage);

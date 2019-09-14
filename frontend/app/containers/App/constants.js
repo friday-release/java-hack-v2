@@ -15,3 +15,4 @@ export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 export const DEFAULT_LOCALE = 'en';
 
 export const LOAD_TROPHIES = 'boilerplate/App/LOAD_TROPHIES';
+export const LOAD_TROPHIES_SUCCESS = 'boilerplate/App/LOAD_TROPHIES_SUCCESS';

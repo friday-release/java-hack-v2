@@ -15,12 +15,7 @@
  *    }
  */
 
-import {
-  LOAD_REPOS,
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS_ERROR,
-  LOAD_TROPHIES,
-} from './constants';
+import {LOAD_REPOS, LOAD_REPOS_ERROR, LOAD_REPOS_SUCCESS, LOAD_TROPHIES, LOAD_TROPHIES_SUCCESS} from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -37,6 +32,13 @@ export function loadTrophies() {
   return {
     type: LOAD_TROPHIES
   };
+}
+
+export function tropiesLoaded(trophies) {
+  return {
+    type: LOAD_TROPHIES_SUCCESS,
+    trophies
+  }
 }
 
 /**

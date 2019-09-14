@@ -2,14 +2,12 @@
  * Gets the repositories of the user from Github
  */
 
-import {
-  call, put, select, takeLatest
-} from 'redux-saga/effects';
-import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import {call, put, select, takeEvery, takeLatest,} from 'redux-saga/effects';
+import {LOAD_REPOS, LOAD_TROPHIES} from 'containers/App/constants';
+import {repoLoadingError, reposLoaded, tropiesLoaded} from 'containers/App/actions';
 
 import request from 'utils/request';
-import { makeSelectUsername } from 'containers/HomePage/selectors';
+import {makeSelectUsername} from 'containers/HomePage/selectors';
 
 /**
  * Github repos request/response handler
@@ -30,10 +28,10 @@ export function* getRepos() {
 
 export function* getTrophies() {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${userId}/repos?type=all&sort=updated`;
+  const requestURL = `http://localhost:8080/api/tenants/123/trophies`;
   try {
-    const repos = yield call(request, requestURL);
-
+    const trophies = yield call(request, requestURL);
+    yield put(tropiesLoaded(trophies));
   } catch(err) {
     //
   }
