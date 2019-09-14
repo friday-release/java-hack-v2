@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
+ * Награда, тенант покупает ее за points
+ *
  * @author avbelyaev
  */
 @Data

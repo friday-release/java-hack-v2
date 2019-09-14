@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import ru.fridayrelease.loyalty.domain.task.exception.InvalidTaskStateException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,6 +27,12 @@ public class Task {
 
     @Nonnull
     private String title;
+
+    @Nonnull
+    private TaskState state;
+
+    @Nonnull
+    private String tenantId;
 
     @Nonnull
     private String description;
@@ -57,6 +64,18 @@ public class Task {
 
     protected Task() {
         // required for mongo
+    }
+
+    /**
+     * if transition is denied, {@link InvalidTaskStateException} is thrown
+     */
+    public void transitTo(@Nonnull TaskState newState) {
+        if (this.state.cantTransitTo(newState)) {
+            this.state = newState;
+
+        } else {
+            throw new InvalidTaskStateException();
+        }
     }
 
     /**
