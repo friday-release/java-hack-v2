@@ -3,9 +3,11 @@ package ru.fridayrelease.loyalty.domain.task.exception;
 /**
  * @author avbelyaev
  */
-public class TaskStateUpdateDeniedException extends IllegalStateException {
+public class InvalidTaskStateException extends IllegalStateException {
 
-    public TaskStateUpdateDeniedException() {
+    // TODO add UUIDs
+
+    public InvalidTaskStateException() {
         super("Task cannot be transitioned to provided state");
     }
 }
