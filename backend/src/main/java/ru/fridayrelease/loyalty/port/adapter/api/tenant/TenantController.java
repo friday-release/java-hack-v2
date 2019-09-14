@@ -10,6 +10,8 @@ import ru.fridayrelease.loyalty.domain.tenant.TenantRepository;
 import ru.fridayrelease.loyalty.domain.tenant.exception.TenantNotFoundException;
 
 import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,11 +21,20 @@ public class TenantController {
     private final TenantRepository tenantRepository;
 
     @GetMapping("/api/tenants/{tenantId}")
-    public ResponseEntity<TenantModel> getAllTasks(@PathVariable("tenantId") String id) {
+    public ResponseEntity<TenantModel> getTenantById(@PathVariable("tenantId") String id) {
         var tenant = tenantRepository
                 .findById(id)
                 .map(TenantModel::new)
                 .orElseThrow(TenantNotFoundException::new);
         return ResponseEntity.ok(tenant);
+    }
+
+    @GetMapping("/api/tenants")
+    public ResponseEntity<List<TenantModel>> getAllTenants() {
+        var tenants = tenantRepository
+                .findAll().stream()
+                .map(TenantModel::new)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(tenants);
     }
 }

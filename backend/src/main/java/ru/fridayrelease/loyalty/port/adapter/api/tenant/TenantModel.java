@@ -1,12 +1,14 @@
 package ru.fridayrelease.loyalty.port.adapter.api.tenant;
 
-import lombok.Builder;
+import lombok.Data;
 import ru.fridayrelease.loyalty.domain.tenant.Tenant;
 
 import javax.annotation.Nonnull;
 
-public class TenantModel {
+@Data
+class TenantModel {
 
+    @Nonnull
     private String id;
 
     @Nonnull
@@ -24,6 +26,7 @@ public class TenantModel {
         this.profile = new ProfileModel(tenant.getProfile());
     }
 
+    @Data
     public static class ProfileModel {
 
         private String firstName;
