@@ -6,7 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -15,6 +15,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './style.scss';
+import Header from 'components/temp1';
 
 const styles = theme => ({
   root: {
@@ -30,6 +31,36 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
 });
+
+const useHeaderStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
+}));
+//
+// const temp1 = () => (
+//   const classes = useHeaderStyles();
+//   <header>
+//     <div className="container invoices__header-top">
+//       <div>Иван Иванович</div>
+//     </div>
+//     <nav className="invoices__navigation">
+//       <div className="container invoices__navigations--in-container">
+//         <span className="invoices__navigation-item">Главная</span>
+//         <span className="invoices__navigation-item invoices__navigation-item--with-pseudo">
+//           Валюта
+//         </span>
+//         <span className="invoices__navigation-item invoices__navigation-item--selected">
+//           Карты
+//         </span>
+//         <span className="invoices__navigation-item">Кредиты</span>
+//       </div>
+//     </nav>
+//   </header>
+// );
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
@@ -96,7 +127,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                     </ExpansionPanel>
                     );
                   })}
-                  
+
                 <Typography className="item_head__widget-line"  variant="h5" component="h2">
                   Полученные
                 </Typography>
