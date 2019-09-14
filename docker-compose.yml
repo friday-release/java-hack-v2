@@ -1,25 +1,9 @@
 version: '3.1'
 
 services:
-  #  fixing issue when mongo cannot create directory `/bitnami/mongo` inside container
-  #  when volume is mounted from host. so we are just changing permissions
-  fix-mongodb-permissions:
-    image: bitnami/mongodb:4.1
-    user: root
-    command: chown -R 1001:1001 /bitnami
-    volumes:
-      - ./mongo_data:/bitnami
-
   mongodb:
-    image: bitnami/mongodb:4.1
-    environment:
-      - MONGODB_USERNAME=raif
-      - MONGODB_PASSWORD=raif
-      - MONGODB_DATABASE=raif
+    image: mongo:4.1.9
     ports:
       - 27017:27017
     volumes:
-      - ./mongo_data:/bitnami
-    restart: always
-    depends_on:
-      - fix-mongodb-permissions
+      - './mongo-data:/data/db'
