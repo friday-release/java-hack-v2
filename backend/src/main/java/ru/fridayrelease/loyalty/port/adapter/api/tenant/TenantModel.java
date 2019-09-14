@@ -24,14 +24,13 @@ public class TenantModel {
         this.profile = new ProfileModel(tenant.getProfile());
     }
 
-    @Builder
     public static class ProfileModel {
 
         private String firstName;
 
         private String lastName;
 
-        public ProfileModel(Tenant.Profile profile) {
+        ProfileModel(Tenant.Profile profile) {
             this.firstName = profile.getFirstName();
             this.lastName = profile.getLastName();
         }

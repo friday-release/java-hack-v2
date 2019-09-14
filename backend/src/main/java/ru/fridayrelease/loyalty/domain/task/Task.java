@@ -1,9 +1,6 @@
 package ru.fridayrelease.loyalty.domain.task;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import ru.fridayrelease.loyalty.domain.task.exception.InvalidTaskStateException;
@@ -11,20 +8,18 @@ import ru.fridayrelease.loyalty.domain.task.exception.InvalidTaskStateException;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author avbelyaev
  */
 @Data
-@EqualsAndHashCode
-@ToString
 @Document(collection = "tasks")
-@Builder
 public class Task {
 
     @Id
     @Builder.Default
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     @Nonnull
     private String title;
@@ -49,6 +44,18 @@ public class Task {
     // TODO make enum
     @Nonnull
     private String category;
+
+    @Builder
+    public Task(@Nonnull String title, @Nonnull TaskState state, long points, @Nonnull String tenantId, @Nonnull String description, @Nullable Progress progress, @Nullable List<String> conditions, @Nonnull String category) {
+        this.title = title;
+        this.state = state;
+        this.points = points;
+        this.tenantId = tenantId;
+        this.description = description;
+        this.progress = progress;
+        this.conditions = conditions;
+        this.category = category;
+    }
 
     protected Task() {
         // required for mongo

@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Nonnull;
+import java.util.UUID;
 
 /**
  * ИП, лицо выполняющее задания
@@ -20,7 +21,7 @@ public class Tenant {
 
     @Id
     @Builder.Default
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     @Nonnull
     private Profile profile;
