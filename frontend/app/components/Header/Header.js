@@ -10,11 +10,9 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
  */
 
 const useHeaderStyles = makeStyles(theme => ({
-  // FIXME 300px width -> 100%?
   headerTop: {
     backgroundColor: '#ffdb00',
-    paddingTop: '60px',
-    width: '400px'
+    paddingTop: '30px',
   },
   logo: {
     backgroundColor: 'green'
@@ -45,6 +43,8 @@ const Header = () => {
         <Grid item xs={12}>
           <ButtonGroup fullWidth aria-label="full width outlined button group">
             <Button className={classes.navItem}>Главная</Button>
+            <Button className={classes.navItem}>История операций</Button>
+            <Button className={classes.navItem}>Шаблоны и автоплатежи</Button>
             <Button className={classes.navItem}>Кредиты</Button>
             <Button className={classes.navItem}>Депозиты</Button>
           </ButtonGroup>

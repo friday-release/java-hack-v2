@@ -11,7 +11,6 @@ import Paper from '@material-ui/core/Paper';
 import './style.scss';
 import Trophies from 'components/Trophies';
 import Tasks from 'components/Tasks';
-import Header from 'components/Header';
 
 const styles = theme => ({
   root: {
@@ -45,7 +44,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     const username = 'Рога и копыта';
     return (
       <div style={{display: 'flex', width: "100%", position: "relative", height: "500"}}>
-        <Header/>
+
         <Paper className={classes.root}>
               <div className="item_header">
                   <div className="item_header__content">
