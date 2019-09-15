@@ -38,8 +38,9 @@ public class TaskService {
             throw new WrongTenantException();
         }
         task.transitTo(TaskState.COMPLETED);
-//        taskRepository.save(task);
+        // TODO may cause error
+        taskRepository.save(task);
         tenant.setPoints(tenant.getPoints() + task.getPoints());
-//        tenantRepository.add(tenant);
+        tenantRepository.add(tenant);
     }
 }
