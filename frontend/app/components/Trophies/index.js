@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 
 const styles = (theme => ({
   root: {
+    margin: 20,
     padding: theme.spacing(3, 2),
     minWidth: 275,
   },
@@ -65,7 +66,6 @@ const Trophies = ({availableTrophies, completedTrophies, classes}) => {
           </ExpansionPanel>
         );
       })}
-
     <Typography className={classes.dividerTitle} variant="h5" component="h2">
       Полученные
     </Typography>

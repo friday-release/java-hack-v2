@@ -15,10 +15,8 @@ import DetailInfo from 'components/DetailInfo';
 const styles = theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    position: 'absolute',
-    left: 80,
-    top: 100,
-    height: '500px',
+    marginLeft: 80,
+    height: '100%',
     width: '100%',
     display: 'flex',
   },
