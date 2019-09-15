@@ -30,25 +30,11 @@ public class InitialDataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Filling initial data");
-
-        var tenant = Tenant.builder()
-                .ogrn("11111111111111")
-                .points(0)
-                .profile(
-                        Tenant.Profile.builder()
-                                .firstName("Ivan")
-                                .lastName("Petrov")
-                                .build()
-                )
-                .build();
-        tenant.setId(TENANT_ID);
-        tenant = mongoTemplate.save(tenant);
-
-        var tenantId = tenant.getId();
+        loadTenants();
 
         var trophy1 = Trophy.builder()
                 .title("Месяц бесплатного использования смс-уведомлений")
-                .tenantId(tenantId)
+                .tenantId(TENANT_ID)
                 .state(TrophyState.AVAILABLE)
                 .description("В течение месяца вы можете получать уведомления, " +
                         "если вы являетесь клиентом Теле2")
@@ -64,7 +50,7 @@ public class InitialDataLoader implements CommandLineRunner {
                 .title("Пригласить друга")
                 .points(300)
                 .state(TaskState.IN_PROGRESS)
-                .tenantId(tenantId)
+                .tenantId(TENANT_ID)
                 .description("Пригласи 3 друга, и, когда они совершит 30 сделок," +
                         "ты получишь на счет 1000 бачей")
                 .progress(Task.Progress.builder()
@@ -88,7 +74,19 @@ public class InitialDataLoader implements CommandLineRunner {
         if (0 == tenants) {
             log.info("Loading tenants");
 
-            // TODO load. user TENANT_ID
+            var tenant = Tenant.builder()
+                    .ogrn("11111111111111")
+                    .points(480)
+                    .profile(
+                            Tenant.Profile.builder()
+                                    .firstName("Ivan")
+                                    .lastName("Petrov")
+                                    .avatarUrl("http://localhost:8080/images/harold.jpg")
+                                    .build()
+                    )
+                    .build();
+            tenant.setId(TENANT_ID);
+            mongoTemplate.save(tenant);
 
             tenants = this.mongoTemplate.count(new Query(), Tenant.class);
             log.info("DB has been filled with {} tenants", tenants);
