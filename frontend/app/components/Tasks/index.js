@@ -79,7 +79,7 @@ const Tasks = ({tasks, classes, onEffect}) => {
         Задания
       </Typography>
       <Divider light />
-      {tasks.map(({id, title, description}) => {
+      {tasks.map(({id, title, description, points }) => {
         const onClick = () => { handleTaskIdChange(id), handleClickOpen() }
         return (
           <ExpansionPanel key={id}>

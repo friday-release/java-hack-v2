@@ -8,7 +8,7 @@ import {detailLoaded, tasksLoaded, trophiesLoaded} from 'containers/App/actions'
 
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
-import {effectsSended} from "./actions";
+import {effectsSended, updateTrophy} from "./actions";
 import {EFFECTS_SENDED, GET_TROPHY, ON_EFFECT} from './constants';
 
 /**
