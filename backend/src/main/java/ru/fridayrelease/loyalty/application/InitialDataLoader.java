@@ -49,7 +49,7 @@ public class InitialDataLoader implements CommandLineRunner {
                     .points(480)
                     .profile(
                             Tenant.Profile.builder()
-                                    .avatarUrl("http://localhost:8080/images/harold.jpg")
+                                    .avatarUrl("http://134.209.134.214/images/harold.jpg")
                                     .build()
                     )
                     .build();
@@ -76,8 +76,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Вы можете ознакомиться с расписанием мероприятий, ивентов, митапов и получить билет по ссылке.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(600)
                             .build()
             );
@@ -90,8 +90,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Подключите бесплатные уведомления о налоговых событиях и важных изменениях в налоговом законодательстве.  Всегда оставайтесь в курсе ")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(1000)
                             .build()
             );
@@ -105,8 +105,8 @@ public class InitialDataLoader implements CommandLineRunner {
                                     "(иконка) Наградой можно воспользоваться только один раз.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(5000)
                             .build()
             );
@@ -119,8 +119,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Воспользуйтесь бесплатной удаленной консультацией с юридическим экспертом. Со списком наших партнеров вы можете ознакомится по ссылке.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(3000)
                             .build()
             );
@@ -133,8 +133,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Воспользуйтесь бесплатной удаленной консультацией с финансовым экспертом. Со списком наших партнеров вы можете ознакомится по ссылке.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(3000)
                             .build()
             );
@@ -147,8 +147,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Не вносите за следующий месяц плату за расчетно-кассовое обслуживание.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(1500)
                             .build()
             );
@@ -161,8 +161,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Воспользуйтесь тарифным пакетом на РКО на один уровень выше вашего текущего по стоимости текущего тарифного плана.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(2000)
                             .build()
             );
@@ -175,8 +175,8 @@ public class InitialDataLoader implements CommandLineRunner {
                             .description("Получите 20 бесплатных платежей другим кредитным организациям сверх вашего тарифного плана РКО.")
                             .category("Бонусная программа")
                             .expirationDate(LocalDateTime.now().plusHours(24))
-                            .imageUrl("http://localhost:8080/images/blablabla")
-                            .productUrl("http://localhost:8080/images/blablabla")
+                            .imageUrl("http://134.209.134.214/images/blablabla")
+                            .productUrl("http://134.209.134.214/images/blablabla")
                             .pointsCost(1500)
                             .build()
             );

@@ -17,7 +17,7 @@ import { ON_EFFECT } from './constants';
 
 export function* getTrophies() {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `http://localhost:8080/api/tenants/123/trophies`;
+  const requestURL = `http://134.209.134.214/api/tenants/123/trophies`;
   try {
     const trophies = yield call(request, requestURL);
     yield put(trophiesLoaded(trophies));
@@ -27,7 +27,7 @@ export function* getTrophies() {
 }
 export function* getTasks() {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `http://localhost:8080/api/tenants/123/tasks`;
+  const requestURL = `http://134.209.134.214/api/tenants/123/tasks`;
   try {
     const tasks = yield call(request, requestURL);
     yield put(tasksLoaded(tasks));
@@ -38,7 +38,7 @@ export function* getTasks() {
 
 export function* getDetailInfo() {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `http://localhost:8080/api/tenants/123`;
+  const requestURL = `http://134.209.134.214/api/tenants/123`;
   try {
     const detail = yield call(request, requestURL);
     yield put(detailLoaded(detail));
@@ -49,7 +49,7 @@ export function* getDetailInfo() {
 
 export function* effects({id}) {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `http://localhost:8080/api/tenants/123/tasks/${id}/complete`;
+  const requestURL = `http://134.209.134.214/api/tenants/123/tasks/${id}/complete`;
   try {
     debugger;
     const detail = yield call(request, requestURL,  {method: 'POST', // или 'PUT'

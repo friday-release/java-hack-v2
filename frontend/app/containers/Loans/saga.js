@@ -13,7 +13,7 @@ import request from 'utils/request';
 
 export function* getLoan() {
   // const userId = yield select(makeSelectUsername());
-  const requestURL = `http://localhost:8080/api/tenants/123/tasks/234/complete`;
+  const requestURL = `http://134.209.134.214/api/tenants/123/tasks/234/complete`;
   try {
     const status = yield call(request, requestURL);
     yield put(loanLoaded(status));
