@@ -102,8 +102,6 @@ HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
   completedTrophies: PropTypes.array,
   availableTrophies: PropTypes.array,
-  loading: PropTypes.bool,
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
   fetchTrophies: PropTypes.func,
