@@ -4,35 +4,31 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import {
-  makeSelectRepos,
-  makeSelectLoading,
-  makeSelectError
+  availableTrophies,
+  completedTrophies,
+  tasks,
+  detail
 } from 'containers/App/selectors';
-import { loadRepos, loadTrophies } from '../App/actions';
+import { loadTrophies, loadTasks, loadDetail } from 'containers/App/actions';
 import { changeUsername } from './actions';
-import { makeSelectUsername, availableTrophies, completedTrophies } from './selectors';
+import { makeSelectUsername  } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-  onSubmitForm: (evt) => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(loadRepos());
-  },
-  fetchTrophies: () => {
-    dispatch(loadTrophies());
-  }
+  fetchTrophies: () => dispatch(loadTrophies()),
+  fetchTasks: () => dispatch(loadTasks()),
+  fetchDetailInfo: () => dispatch(loadDetail())
 });
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
   username: makeSelectUsername(),
   availableTrophies: availableTrophies(),
   completedTrophies: completedTrophies(),
-  loading: makeSelectLoading(),
-  error: makeSelectError()
+  tasks: tasks(),
+  detail: detail()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

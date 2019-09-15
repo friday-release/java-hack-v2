@@ -2,36 +2,45 @@
  * Gets the repositories of the user from Github
  */
 
-import {call, put, select, takeEvery, takeLatest,} from 'redux-saga/effects';
-import {LOAD_REPOS, LOAD_TROPHIES} from 'containers/App/constants';
-import {repoLoadingError, reposLoaded, tropiesLoaded} from 'containers/App/actions';
+import {call, put, select, takeEvery,} from 'redux-saga/effects';
+import {LOAD_TROPHIES, LOAD_TASKS, LOAD_DETAIL} from 'containers/App/constants';
+import {trophiesLoaded, tasksLoaded} from 'containers/App/actions';
 
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
+import {detailLoaded} from "../App/actions";
 
 /**
  * Github repos request/response handler
  */
-export function* getRepos() {
-  // Select username from store
-  const username = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
-
-  try {
-    // Call our request helper (see 'utils/request')
-    const repos = yield call(request, requestURL);
-    yield put(reposLoaded(repos, username));
-  } catch (err) {
-    yield put(repoLoadingError(err));
-  }
-}
 
 export function* getTrophies() {
   const userId = yield select(makeSelectUsername());
   const requestURL = `http://localhost:8080/api/tenants/123/trophies`;
   try {
     const trophies = yield call(request, requestURL);
-    yield put(tropiesLoaded(trophies));
+    yield put(trophiesLoaded(trophies));
+  } catch(err) {
+    //
+  }
+}
+export function* getTasks() {
+  const userId = yield select(makeSelectUsername());
+  const requestURL = `http://localhost:8080/api/tenants/123/tasks`;
+  try {
+    const tasks = yield call(request, requestURL);
+    yield put(tasksLoaded(tasks));
+  } catch(err) {
+    //
+  }
+}
+
+export function* getDetailInfo() {
+  const userId = yield select(makeSelectUsername());
+  const requestURL = `http://localhost:8080/api/tenants/123`;
+  try {
+    const detail = yield call(request, requestURL);
+    yield put(detailLoaded(detail));
   } catch(err) {
     //
   }
@@ -40,11 +49,8 @@ export function* getTrophies() {
 /**
  * Root saga manages watcher lifecycle
  */
-export default function* githubData() {
+export default function* data() {
   yield takeEvery(LOAD_TROPHIES, getTrophies);
-  // Watches for LOAD_REPOS actions and calls getRepos when one comes in.
-  // By using `takeLatest` only the result of the latest API call is applied.
-  // It returns task descriptor (just like fork) so we can continue execution
-  // It will be cancelled automatically on component unmount
-  yield takeLatest(LOAD_REPOS, getRepos);
+  yield takeEvery(LOAD_TASKS, getTasks);
+  yield takeEvery(LOAD_DETAIL, getDetailInfo);
 }
