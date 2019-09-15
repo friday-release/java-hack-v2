@@ -8,12 +8,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './style.scss';
 import Trophies from 'components/Trophies';
 import Tasks from 'components/Tasks';
@@ -33,42 +27,12 @@ const styles = theme => ({
   },
 });
 
-const useHeaderStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-}));
-//
-// const temp1 = () => (
-//   const classes = useHeaderStyles();
-//   <header>
-//     <div className="container invoices__header-top">
-//       <div>Иван Иванович</div>
-//     </div>
-//     <nav className="invoices__navigation">
-//       <div className="container invoices__navigations--in-container">
-//         <span className="invoices__navigation-item">Главная</span>
-//         <span className="invoices__navigation-item invoices__navigation-item--with-pseudo">
-//           Валюта
-//         </span>
-//         <span className="invoices__navigation-item invoices__navigation-item--selected">
-//           Карты
-//         </span>
-//         <span className="invoices__navigation-item">Кредиты</span>
-//       </div>
-//     </nav>
-//   </header>
-// );
-
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
    */
   componentDidMount() {
-    const {username, onSubmitForm, fetchTrophies} = this.props;
+    const { username, onSubmitForm, fetchTrophies } = this.props;
     if (username && username.trim().length > 0) {
       onSubmitForm();
     }
@@ -76,11 +40,11 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 
   render() {
-    const {classes, completedTrophies, availableTrophies} = this.props;
-
+    const { classes, completedTrophies, availableTrophies } = this.props;
     const username = 'Рога и копыта';
     return (
       <div style={{display: 'flex', width: "100%", position: "relative", height: "500"}}>
+
         <Paper className={classes.root}>
               <div className="item_header">
                   <div className="item_header__content">
