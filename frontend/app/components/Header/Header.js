@@ -25,10 +25,13 @@ const useHeaderStyles = makeStyles(theme => ({
   },
   navItem: {
     backgroundColor: 'white',
-    height: '50px'
+    height: '50px',
+    '&:hover': {
+      backgroundColor: '#f3f3f3',
+    }
   },
-  buttonContainer: {
-    backgroundColor: 'red',
+  gridContainer: {
+    paddingBottom: 0
   }
 }));
 
@@ -42,8 +45,8 @@ const Header = () => {
         </Link>
         <div>Райффайзен банк</div>
       </div>
-      <Grid container spacing={3} className={classes.navContainer}>
-        <Grid item xs={12}>
+      <Grid container spacing={0}>
+        <Grid item xs={12} className={classes.gridContainer}>
           <ButtonGroup fullWidth className={classes.buttonContainer}
                        aria-label="full width outlined button group">
             <Button className={classes.navItem}>Главная</Button>
