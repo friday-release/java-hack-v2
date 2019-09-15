@@ -7,6 +7,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Paper from "@material-ui/core/Paper";
+import Button from '@material-ui/core/Button';
 
 const styles = (theme => ({
   root: {
@@ -27,7 +28,7 @@ const styles = (theme => ({
 }));
 
 
-const Tasks = ({tasks, classes}) => {
+const Tasks = ({tasks, classes, onEffect}) => {
   return (
     <Paper className={classes.root}>
       <Typography className={classes.title} variant="h4" component="h2">
@@ -35,6 +36,7 @@ const Tasks = ({tasks, classes}) => {
       </Typography>
       <Divider light />
       {tasks.map(({id, title, description}) => {
+        const onClick = () => onEffect(id);
         return (
           <ExpansionPanel key={id}>
             <ExpansionPanelSummary
@@ -47,6 +49,9 @@ const Tasks = ({tasks, classes}) => {
             <ExpansionPanelDetails>
               <Typography>
                 {description}
+                <Button variant="contained" onClick={onClick} color="primary" className={classes.button}>
+                  Выполнить
+                </Button>
               </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>

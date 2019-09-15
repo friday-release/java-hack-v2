@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import { CHANGE_USERNAME, ON_EFFECT, EFFECTS_SENDED } from './constants';
 
 /**
  * Changes the input field of the form
@@ -29,4 +29,15 @@ export function changeUsername(name) {
     type: CHANGE_USERNAME,
     name
   };
+}
+
+export function effect(id) {
+  return {
+    type: ON_EFFECT,
+    id
+  }
+}
+
+export function effectsSended() {
+  return {type: EFFECTS_SENDED} 
 }
