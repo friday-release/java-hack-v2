@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME, ON_EFFECT, EFFECTS_SENDED } from './constants';
+import { CHANGE_USERNAME, ON_EFFECT, EFFECTS_SENDED, GET_TROPHY, TROPHY_SENDED  } from './constants';
 
 /**
  * Changes the input field of the form
@@ -42,14 +42,14 @@ export function effectsSended(id) {
   return {type: EFFECTS_SENDED, id: id};
 }
 
-export function selectTrophy() {
+export function selectTrophy(id) {
   return {
     type: GET_TROPHY,
     id: id
   }
 }
 
-export function update_TROPHY(id) {
+export function updateTrophy(id) {
   return {
     type: TROPHY_SENDED,
     id: id

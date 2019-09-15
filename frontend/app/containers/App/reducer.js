@@ -1,5 +1,5 @@
 import {LOAD_TROPHIES_SUCCESS, LOAD_TASKS_SUCCESS, LOAD_DETAIL_SUCCESS} from './constants';
-import {EFFECTS_SENDED} from 'containers/HomePage/constants';
+import {EFFECTS_SENDED, TROPHY_SENDED } from 'containers/HomePage/constants';
 // The initial state of the App
 export const initialState = {
   loading: false,
@@ -8,6 +8,11 @@ export const initialState = {
   detail: {},
   trophies: [],
   tasks: []
+};
+
+export const STATE = {
+  AVAILABLE: 'AVAILABLE',
+  COMPLETED: 'COMPLETED'
 };
 
 function appReducer(state = initialState, action) {
@@ -20,6 +25,13 @@ function appReducer(state = initialState, action) {
       return {...state, tasks: state.tasks.filter(task => action.id !== task.id)};
     case LOAD_DETAIL_SUCCESS:
       return {...state, detail: action.detail};
+    case TROPHY_SENDED: {
+      const trophies = state.trophies;
+      const trophyIdx = trophies.findIndex(item => action.id === item.id);
+      const newTrophy = {...trophies[trophyIdx], state: STATE.COMPLETED};
+      const newTrophies = [...trophies].splice(trophyIdx, 1, newTrophy);
+      return {...state, trophies: newTrophies}
+    }
     default:
       return state;
   }

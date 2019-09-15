@@ -65,10 +65,9 @@ export function* effects({id}) {
 
 export function* changeTrophy({id}) {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `http://134.209.134.214/api/tenants/123/tasks/${id}/complete`;
+  // const requestURL = `http://134.209.134.214/api/tenants/123/tasks/${id}/`;
   try {
-
-    yield put(effectsSended(id));
+    yield put(updateTrophy(id));
   } catch(err) {
     //
   }
