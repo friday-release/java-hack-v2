@@ -43,7 +43,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     const { classes, completedTrophies, availableTrophies } = this.props;
     const username = 'Рога и копыта';
     return (
-      <div style={{display: 'flex', width: "100%", position: "relative", height: "500"}}>
+      <div style={{display: 'flex', width: "100%", position: "relative", left: '80px', height: "500"}}>
 
         <Paper className={classes.root}>
               <div className="item_header">
