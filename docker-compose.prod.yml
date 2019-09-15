@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  mongodb:
+    image: mongo:4.1.9
+    ports:
+      - 27017:27017
+    volumes:
+      - './mongo-data:/data/db'
+
+  api:
+    image: shaldnikita/friday-release-loyalty
+    ports:
+      - 8080:80
+    depends_on:
+      - mongodb

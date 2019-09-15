@@ -12,7 +12,6 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 const useHeaderStyles = makeStyles(theme => ({
   headerTop: {
     backgroundColor: '#ffdb00',
-    paddingTop: '30px',
     height: '50px'
   },
   logo: {
@@ -26,7 +25,13 @@ const useHeaderStyles = makeStyles(theme => ({
   },
   navItem: {
     backgroundColor: 'white',
-    height: '50px'
+    height: '50px',
+    '&:hover': {
+      backgroundColor: '#f3f3f3',
+    }
+  },
+  gridContainer: {
+    paddingBottom: 0
   }
 }));
 
@@ -40,9 +45,10 @@ const Header = () => {
         </Link>
         <div>Райффайзен банк</div>
       </div>
-      <Grid container spacing={3} className={classes.navContainer}>
-        <Grid item xs={12}>
-          <ButtonGroup fullWidth aria-label="full width outlined button group">
+      <Grid container spacing={0}>
+        <Grid item xs={12} className={classes.gridContainer}>
+          <ButtonGroup fullWidth className={classes.buttonContainer}
+                       aria-label="full width outlined button group">
             <Button className={classes.navItem}>Главная</Button>
             <Button className={classes.navItem}>История операций</Button>
             <Button className={classes.navItem}>Шаблоны и автоплатежи</Button>

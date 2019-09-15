@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.fridayrelease.loyalty.application.TaskService;
 import ru.fridayrelease.loyalty.domain.task.TaskRepository;
@@ -34,7 +35,7 @@ public class TaskController {
         return ResponseEntity.ok(tasks);
     }
 
-    @GetMapping("/api/tenants/{tenantId}/tasks/{taskId}/complete")
+    @PostMapping("/api/tenants/{tenantId}/tasks/{taskId}/complete")
     public ResponseEntity completeTask(@PathVariable("tenantId") String ogrn,
                                        @PathVariable("taskId") String taskId) {
         this.taskService.markAsCompleted(ogrn, taskId);
