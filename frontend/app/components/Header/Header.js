@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles/index';
-import { Link } from 'react-router-dom';
+import {makeStyles} from '@material-ui/core/styles/index';
+import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -43,7 +43,14 @@ const Header = () => {
         <Link to="/invoices">
           <div className={classes.logo} />
         </Link>
-        <div style={{textAlign: 'center'}}>Райффайзен банк</div>
+        <div style={{
+          textAlign: 'center',
+          verticalAlign: 'middle',
+          fontSize: '1.8rem',
+          paddingTop: '6px',
+          fontWeight: '700',
+        }}>Райффайзен банк
+        </div>
       </div>
       <Grid container spacing={0}>
         <Grid item xs={12} className={classes.gridContainer}>
@@ -52,8 +59,8 @@ const Header = () => {
             <Button className={classes.navItem}>Главная</Button>
             <Button className={classes.navItem}>История операций</Button>
             <Button className={classes.navItem}>Шаблоны и автоплатежи</Button>
-            <Button className={classes.navItem}>Кредиты</Button>
-            <Button className={classes.navItem}>Депозиты </Button>
+            <Button className={classes.navItem}>Оплатить</Button>
+            <Button className={classes.navItem}>Перевести</Button>
           </ButtonGroup>
         </Grid>
       </Grid>
