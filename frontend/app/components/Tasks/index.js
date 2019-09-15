@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -24,7 +24,7 @@ const styles = (theme => ({
     padding: '16px',
     'padding-top': '0',
     'padding-left': '0',
-    'line-height': '0.6',
+    lineHeight: '0.6',
     'font-size': '1.8rem',
     minHeight: '24px',
     borderBottom: '1px solid #ddd'
@@ -44,7 +44,7 @@ const Tasks = ({tasks, classes, onEffect}) => {
         Задания
       </Typography>
       <Divider light />
-      {tasks.map(({id, title, description}) => {
+      {tasks.map(({id, title, description, points}) => {
         const onClick = () => onEffect(id);
         return (
           <ExpansionPanel key={id}>
@@ -59,6 +59,9 @@ const Tasks = ({tasks, classes, onEffect}) => {
               <Typography>
                 {description}
                 <br/>
+                {points
+                  ? <b>Будет начислено {points} баллов<br/></b>
+                  : ''}
                 <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
                   Выполнить
                 </Button>

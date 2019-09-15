@@ -26,6 +26,8 @@ public class TaskModel {
     @Nonnull
     private String description;
 
+    private long points;
+
     @Nullable
     private TaskModel.ProgressModel progress;
 
@@ -46,6 +48,7 @@ public class TaskModel {
         }
         this.conditions = task.getConditions();
         this.category = task.getCategory();
+        this.points = task.getPoints();
     }
 
 
