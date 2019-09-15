@@ -12,7 +12,7 @@ const styles = (theme => ({
   root: {
     margin: 20,
     padding: theme.spacing(3, 2),
-    minWidth: 275,
+    minWidth: 400,
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
