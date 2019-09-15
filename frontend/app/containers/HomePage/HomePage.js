@@ -35,9 +35,9 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     const {classes, detail, tasks, completedTrophies, availableTrophies } = this.props;
     return (
       <div className={classes.root}>
-        <DetailInfo detail={detail} />
-        <Tasks tasks={tasks} />
-        <Trophies completedTrophies={completedTrophies}  availableTrophies={availableTrophies} />
+        <DetailInfo detail={detail}/>
+        <Tasks tasks={tasks}/>
+        <Trophies completedTrophies={completedTrophies} availableTrophies={availableTrophies}/>
      </div>
     );
   }

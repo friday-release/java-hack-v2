@@ -1,6 +1,4 @@
 import {CHANGE_USERNAME} from './constants';
-import {LOAD_TROPHIES_SUCCESS} from 'containers/App/constants';
-import {STATE} from './selectors';
 
 // The initial state of the App
 const initialState = {

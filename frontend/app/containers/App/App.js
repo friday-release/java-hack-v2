@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from 'components/Header';
 import HomePage from 'containers/HomePage/Loadable';
 import LeftSideBar from 'components/LeftSidebar';
+import Loans from 'containers/Loans/Loadable';
 import './style.scss';
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
     <LeftSideBar/>
     <Switch>
       <Route exact path="/" component={HomePage} />
+      <Route exact path="/loans" component={Loans} />
     </Switch>
   </div>
 );
