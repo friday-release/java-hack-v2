@@ -30,6 +30,7 @@ public class InitialDataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Filling initial data");
+        loadTenants();
 
         var trophy1 = Trophy.builder()
                 .title("Месяц бесплатного использования смс-уведомлений")
