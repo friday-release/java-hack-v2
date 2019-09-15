@@ -45,7 +45,7 @@ public class InitialDataLoader implements CommandLineRunner {
             var tenant = Tenant.builder()
                     .brandTitle("Братья Караваевы")
                     .tenantTitle("ИП Петр Караваев")
-                    .ogrn("11111111111111")
+                    .ogrn("6449013711")
                     .points(480)
                     .profile(
                             Tenant.Profile.builder()
