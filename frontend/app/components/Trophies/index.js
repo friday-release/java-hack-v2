@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -24,7 +24,7 @@ const styles = (theme => ({
     padding: '16px',
     'padding-top': '0',
     'padding-left': '0',
-    'line-height': '0.6',
+    lineHeight: '0.6',
     'font-size': '1.8rem',
     minHeight: '24px',
     borderBottom: '1px solid #ddd'
@@ -39,7 +39,9 @@ const styles = (theme => ({
     paddingTop: '24px',
   },
   button: {
-    marginTop: 20
+    marginTop: 20,
+    backgroundColor: '#ffdb00',
+    color: '#000000'
   }
 }));
 
@@ -70,9 +72,16 @@ const Trophies = ({availableTrophies, selectTrophy, detail, completedTrophies, c
             <ExpansionPanelDetails>
               <Typography>
                 {description}
-                { detail.points >= points && <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
-                 Получить
-                </Button>}
+                <br/>
+                {points
+                  ? <b>Стоимость: {points} баллов<br/></b>
+                  : ''}
+                <Button variant="contained"
+                        onClick={onClick}
+                        color="secondary"
+                        className={classes.button}>
+                  Забрать награду
+                </Button>
               </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>
