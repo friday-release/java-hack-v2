@@ -11,21 +11,6 @@ const makeSelectCurrentUser = () => createSelector(
   (globalState) => globalState.currentUser
 );
 
-const makeSelectLoading = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.loading
-);
-
-const makeSelectError = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.error
-);
-
-const makeSelectRepos = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.userData.repositories
-);
-
 const makeSelectLocation = () => createSelector(
   selectRoute,
   (routeState) => routeState.location
@@ -41,8 +26,13 @@ const availableTrophies = () => createSelector(
   (globalState) => globalState.trophies.filter(({state}) => state === STATE.AVAILABLE)
 );
 
+const tasks = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.tasks
+);
 
 export {
+  tasks,
   selectGlobal,
   makeSelectCurrentUser,
   completedTrophies,

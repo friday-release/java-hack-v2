@@ -13,3 +13,6 @@ export const DEFAULT_LOCALE = 'en';
 
 export const LOAD_TROPHIES = 'boilerplate/App/LOAD_TROPHIES';
 export const LOAD_TROPHIES_SUCCESS = 'boilerplate/App/LOAD_TROPHIES_SUCCESS';
+
+export const LOAD_TASKS = 'boilerplate/App/LOAD_TASKS';
+export const LOAD_TASKS_SUCCESS = 'boilerplate/App/LOAD_TASKS_SUCCESS';

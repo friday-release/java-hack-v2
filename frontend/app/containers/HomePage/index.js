@@ -4,11 +4,11 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import {
-  makeSelectRepos,
   availableTrophies,
-  completedTrophies
+  completedTrophies,
+  tasks
 } from 'containers/App/selectors';
-import { loadTrophies } from '../App/actions';
+import { loadTrophies, loadTasks } from 'containers/App/actions';
 import { changeUsername } from './actions';
 import { makeSelectUsername  } from './selectors';
 import reducer from './reducer';
@@ -17,15 +17,15 @@ import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-  fetchTrophies: () => {
-    dispatch(loadTrophies());
-  }
+  fetchTrophies: () => dispatch(loadTrophies()),
+  fetchTasks: () => dispatch(loadTasks())
 });
 
 const mapStateToProps = createStructuredSelector({
   username: makeSelectUsername(),
   availableTrophies: availableTrophies(),
   completedTrophies: completedTrophies(),
+  tasks: tasks(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

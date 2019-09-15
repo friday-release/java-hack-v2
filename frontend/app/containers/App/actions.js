@@ -15,7 +15,7 @@
  *    }
  */
 
-import {LOAD_TROPHIES, LOAD_TROPHIES_SUCCESS} from './constants';
+import {LOAD_TROPHIES, LOAD_TROPHIES_SUCCESS, LOAD_TASKS, LOAD_TASKS_SUCCESS} from './constants';
 
 export function loadTrophies() {
   return {
@@ -27,5 +27,19 @@ export function trophiesLoaded(trophies) {
   return {
     type: LOAD_TROPHIES_SUCCESS,
     trophies
+  }
+}
+
+
+export function loadTasks() {
+  return {
+    type: LOAD_TASKS
+  };
+}
+
+export function tasksLoaded(tasks) {
+  return {
+    type: LOAD_TASKS_SUCCESS,
+    tasks
   }
 }
