@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 const styles = (theme => ({
   root: {
     padding: theme.spacing(3, 2),
+    minWidth: 275,
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),

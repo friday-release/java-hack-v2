@@ -15,13 +15,16 @@ import DetailInfo from 'components/DetailInfo';
 const styles = theme => ({
   root: {
     padding: theme.spacing(3, 2),
+    position: 'absolute',
+    left: 80,
+    top: 100,
+    height: '500px',
+    width: '100%',
+    display: 'flex',
   },
 });
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
   componentDidMount() {
     const { fetchTrophies, fetchTasks, fetchDetailInfo} = this.props;
     fetchTrophies();
@@ -32,7 +35,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   render() {
     const {classes, detail, tasks, completedTrophies, availableTrophies } = this.props;
     return (
-      <div className={classes.root} style={{display: 'flex', width: "100%", position: "relative", height: "500"}}>
+      <div className={classes.root}>
         <DetailInfo detail={detail} />
         <Tasks tasks={tasks} />
         <Trophies completedTrophies={completedTrophies}  availableTrophies={availableTrophies} />
