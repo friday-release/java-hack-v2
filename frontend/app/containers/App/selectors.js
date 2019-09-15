@@ -1,6 +1,10 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
-import {selectHome, STATE} from "../HomePage/selectors";
+
+export const STATE = {
+  AVAILABLE: 'AVAILABLE',
+  COMPLETED: 'COMPLETED'
+};
 
 const selectGlobal = (state) => state.global || initialState;
 
@@ -31,7 +35,13 @@ const tasks = () => createSelector(
   (globalState) => globalState.tasks
 );
 
+const detail = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.detail
+);
+
 export {
+  detail,
   tasks,
   selectGlobal,
   makeSelectCurrentUser,

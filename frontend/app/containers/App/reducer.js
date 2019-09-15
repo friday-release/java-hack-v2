@@ -1,13 +1,11 @@
-import { LOAD_TROPHIES_SUCCESS, LOAD_TASKS_SUCCESS } from './constants';
+import {LOAD_TROPHIES_SUCCESS, LOAD_TASKS_SUCCESS, LOAD_DETAIL_SUCCESS} from './constants';
 
 // The initial state of the App
 export const initialState = {
   loading: false,
   error: false,
   currentUser: false,
-  userData: {
-    repositories: false,
-  },
+  detail: null,
   trophies: [],
   tasks: []
 };
@@ -18,6 +16,8 @@ function appReducer(state = initialState, action) {
       return {...state, trophies: action.trophies};
     case LOAD_TASKS_SUCCESS:
       return {...state, tasks: action.tasks};
+    case LOAD_DETAIL_SUCCESS:
+      return {...state, detail: action.detail};
     default:
       return state;
   }

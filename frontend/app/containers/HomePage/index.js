@@ -6,9 +6,10 @@ import injectSaga from 'utils/injectSaga';
 import {
   availableTrophies,
   completedTrophies,
-  tasks
+  tasks,
+  detail
 } from 'containers/App/selectors';
-import { loadTrophies, loadTasks } from 'containers/App/actions';
+import { loadTrophies, loadTasks, loadDetail } from 'containers/App/actions';
 import { changeUsername } from './actions';
 import { makeSelectUsername  } from './selectors';
 import reducer from './reducer';
@@ -18,7 +19,8 @@ import HomePage from './HomePage';
 const mapDispatchToProps = (dispatch) => ({
   onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
   fetchTrophies: () => dispatch(loadTrophies()),
-  fetchTasks: () => dispatch(loadTasks())
+  fetchTasks: () => dispatch(loadTasks()),
+  fetchDetailInfo: () => dispatch(loadDetail())
 });
 
 const mapStateToProps = createStructuredSelector({
@@ -26,6 +28,7 @@ const mapStateToProps = createStructuredSelector({
   availableTrophies: availableTrophies(),
   completedTrophies: completedTrophies(),
   tasks: tasks(),
+  detail: detail()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

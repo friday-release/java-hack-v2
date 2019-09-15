@@ -3,11 +3,12 @@
  */
 
 import {call, put, select, takeEvery,} from 'redux-saga/effects';
-import {LOAD_TROPHIES, LOAD_TASKS} from 'containers/App/constants';
+import {LOAD_TROPHIES, LOAD_TASKS, LOAD_DETAIL} from 'containers/App/constants';
 import {trophiesLoaded, tasksLoaded} from 'containers/App/actions';
 
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
+import {detailLoaded} from "../App/actions";
 
 /**
  * Github repos request/response handler
@@ -34,10 +35,22 @@ export function* getTasks() {
   }
 }
 
+export function* getDetailInfo() {
+  const userId = yield select(makeSelectUsername());
+  const requestURL = `http://localhost:8080/api/tenants/123`;
+  try {
+    const detail = yield call(request, requestURL);
+    yield put(detailLoaded(detail));
+  } catch(err) {
+    //
+  }
+}
+
 /**
  * Root saga manages watcher lifecycle
  */
 export default function* data() {
   yield takeEvery(LOAD_TROPHIES, getTrophies);
   yield takeEvery(LOAD_TASKS, getTasks);
+  yield takeEvery(LOAD_DETAIL, getDetailInfo);
 }
