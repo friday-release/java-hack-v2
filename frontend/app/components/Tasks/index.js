@@ -28,6 +28,9 @@ const styles = (theme => ({
     'font-size': '1.8rem',
     minHeight: '24px',
     borderBottom: '1px solid #ddd'
+  },
+  button: {
+    backgroundColor: '#ffdb00'
   }
 }));
 
@@ -53,6 +56,7 @@ const Tasks = ({tasks, classes, onEffect}) => {
             <ExpansionPanelDetails>
               <Typography>
                 {description}
+                <br/>
                 <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
                   Выполнить
                 </Button>
