@@ -33,12 +33,12 @@ public class InitialDataLoader implements CommandLineRunner {
         loadTenants();
         loadTrophies();
         loadTasks();
-        long count = this.mongoTemplate.count(new Query(), Trophy.class);
-        log.info("DB has been filled with {} entries", count);
+        log.info("DB has been filled with initial data");
     }
 
     private void loadTenants() {
         long tenants = this.mongoTemplate.count(new Query(), Tenant.class);
+        log.info("Tenants already found: {}", tenants);
         if (0 == tenants) {
             log.info("Loading tenants");
 
@@ -63,6 +63,7 @@ public class InitialDataLoader implements CommandLineRunner {
 
     private void loadTrophies() {
         long trophies = this.mongoTemplate.count(new Query(), Trophy.class);
+        log.info("Trophies already found: {}", trophies);
         if (0 == trophies) {
             log.info("Loading trophies");
 
@@ -188,6 +189,7 @@ public class InitialDataLoader implements CommandLineRunner {
 
     private void loadTasks() {
         long tasks = this.mongoTemplate.count(new Query(), Task.class);
+        log.info("Tasks already found: {}", tasks);
         if (0 == tasks) {
             log.info("Loading tasks");
 
@@ -442,7 +444,7 @@ public class InitialDataLoader implements CommandLineRunner {
                                     .all(1)
                                     .build())
                             .conditions(List.of(
-                                    "Оформитьгарантию"
+                                    "Оформить гарантию"
                             ))
                             .category("Воспользоваться услугой, продуктом банка")
                             .build()

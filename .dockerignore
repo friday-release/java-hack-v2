@@ -1,0 +1,9 @@
+
+mongo_data/
+mongo-data/
+
+backend/
+frontend/
+
+.idea/
+.gradle/
