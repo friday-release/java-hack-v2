@@ -15,7 +15,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './style.scss';
-import Header from 'components/temp1';
 
 const styles = theme => ({
   root: {

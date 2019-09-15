@@ -15,7 +15,7 @@ import './style.scss';
 const App = () => (
   <div className="layout">
     {/* <LeftSideBar /> */}
-     <Header />
+    {/* <Header />*/}
     <Switch>
       <Route exact path="/" component={HomePage} />
     </Switch>
