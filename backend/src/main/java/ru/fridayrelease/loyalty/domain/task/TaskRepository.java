@@ -12,7 +12,7 @@ public interface TaskRepository {
     @Nonnull
     List<Task> findAll();
 
-    void add(@Nonnull Task task);
+    void save(@Nonnull Task task);
 
     @Nonnull
     Optional<Task> findById(@Nonnull String id);

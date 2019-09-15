@@ -3,13 +3,13 @@
  */
 
 import {call, put, select, takeEvery,} from 'redux-saga/effects';
-import {LOAD_TROPHIES, LOAD_TASKS, LOAD_DETAIL} from 'containers/App/constants';
-import {trophiesLoaded, tasksLoaded,detailLoaded} from 'containers/App/actions';
+import {LOAD_DETAIL, LOAD_TASKS, LOAD_TROPHIES} from 'containers/App/constants';
+import {detailLoaded, tasksLoaded, trophiesLoaded} from 'containers/App/actions';
 
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
 import {effectsSended} from "./actions";
-import { ON_EFFECT, EFFECTS_SENDED, GET_TROPHY, TROPHY_SENDED } from './constants';
+import {EFFECTS_SENDED, GET_TROPHY, ON_EFFECT} from './constants';
 
 /**
  * Github repos request/response handler
@@ -65,14 +65,10 @@ export function* effects({id}) {
 
 export function* changeTrophy({id}) {
   const userId = yield select(makeSelectUsername());
-  const requestURL = `http://localhost:8080/api/tenants/123/tasks/${id}/complete`;
+  const requestURL = `http://134.209.134.214/api/tenants/123/tasks/${id}/complete`;
   try {
 
     yield put(effectsSended(id));
-    yield call(request, requestURL,  {method: 'POST', // или 'PUT'
-      headers:{
-        'Content-Type': 'application/json'
-      }});
   } catch(err) {
     //
   }

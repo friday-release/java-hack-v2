@@ -38,8 +38,8 @@ public class TaskService {
             throw new WrongTenantException();
         }
         task.transitTo(TaskState.COMPLETED);
-        taskRepository.add(task);
+//        taskRepository.save(task);
         tenant.setPoints(tenant.getPoints() + task.getPoints());
-        tenantRepository.add(tenant);
+//        tenantRepository.add(tenant);
     }
 }
