@@ -14,7 +14,6 @@ const styles = (theme => ({
   },
 }));
 
-
 const DetailInfo = ({detail, classes}) => {
   return (
     <Paper className={classes.root}>
@@ -22,9 +21,9 @@ const DetailInfo = ({detail, classes}) => {
         Карма
       </Typography>
       <Divider light />
-      <div><b> Баллы</b>{detail.points}</div>
+      <div><b> Баллы</b>{detail.points && detail.points}</div>
 
-      <div><b>Имя</b>{detail.profile.firstName}</div>
+      <div><b>Имя</b>{detail.profile && detail.profile.firstName}</div>
     </Paper>
   )};
 

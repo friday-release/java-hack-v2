@@ -5,7 +5,7 @@ export const initialState = {
   loading: false,
   error: false,
   currentUser: false,
-  detail: null,
+  detail: {},
   trophies: [],
   tasks: []
 };

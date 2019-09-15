@@ -33,7 +33,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     const {classes, detail, tasks, completedTrophies, availableTrophies } = this.props;
     return (
       <div className={classes.root} style={{display: 'flex', width: "100%", position: "relative", height: "500"}}>
-        <DetailInfo  detail={detail} />
+        <DetailInfo detail={detail} />
         <Tasks tasks={tasks} />
         <Trophies completedTrophies={completedTrophies}  availableTrophies={availableTrophies} />
      </div>
