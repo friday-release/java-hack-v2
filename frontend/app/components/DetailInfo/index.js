@@ -13,12 +13,18 @@ const styles = (theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  title: {
+    display: 'flex',
+    padding: '16px',
+    minHeight: '24px',
+    borderBottom: '1px solid #ddd'
+  }
 }));
 
 const DetailInfo = ({detail, classes}) => {
   return (
     <Paper className={classes.root}>
-      <Typography variant="h5" component="h3">
+      <Typography className={classes.title} variant="h4" component="h2">
         Карма
       </Typography>
       <Divider light />

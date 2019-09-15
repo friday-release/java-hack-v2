@@ -22,6 +22,7 @@ const styles = theme => ({
     width: '100%',
     display: 'flex',
   },
+ 
 });
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

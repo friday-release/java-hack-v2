@@ -17,40 +17,56 @@ const styles = (theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  title: {
+    display: 'flex',
+    padding: '16px',
+    minHeight: '24px',
+    borderBottom: '1px solid #ddd'
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: '16px',
+    minHeight: '24px'
+  },
+  dividerTitle: {
+    paddingTop: '24px',
+  }
 }));
 
 
 const Trophies = ({availableTrophies, completedTrophies, classes}) => {
   return (
   <Paper className={classes.root}>
-    <Typography variant="h3" component="h2">
+    <Typography className={classes.title} variant="h4" component="h2">
       Награды
     </Typography>
     <Divider light />
-    <Typography className="item_head__widget-line" variant="h5" component="h2">
-      Доступные
-    </Typography>
-    <Divider light />
-    {availableTrophies.map(({id, title, description}) => {
-      return (
-        <ExpansionPanel key={id}>
-          <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>{title}</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              {description}
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-      );
-    })}
+    <div className={classes.container} >
+      <Typography className={classes.dividerTitle} variant="h5" component="h2">
+        Доступные
+      </Typography>
+      <Divider light />
+      {availableTrophies.map(({id, title, description}) => {
+        return (
+          <ExpansionPanel key={id}>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography className={classes.heading}>{title}</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Typography>
+                {description}
+              </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        );
+      })}
 
-    <Typography className="item_head__widget-line"  variant="h5" component="h2">
+    <Typography className={classes.dividerTitle} variant="h5" component="h2">
       Полученные
     </Typography>
     <Divider light />
@@ -72,6 +88,7 @@ const Trophies = ({availableTrophies, completedTrophies, classes}) => {
         </ExpansionPanel>
       );
     })}
+    </div>    
   </Paper>
 )};
 
