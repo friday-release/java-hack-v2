@@ -41,3 +41,17 @@ export function effect(id) {
 export function effectsSended(id) {
   return {type: EFFECTS_SENDED, id: id};
 }
+
+export function selectTrophy() {
+  return {
+    type: GET_TROPHY,
+    id: id
+  }
+}
+
+export function update_TROPHY(id) {
+  return {
+    type: TROPHY_SENDED,
+    id: id
+  }
+}

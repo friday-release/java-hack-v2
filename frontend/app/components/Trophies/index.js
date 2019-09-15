@@ -7,6 +7,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Paper from "@material-ui/core/Paper";
+import Button from '@material-ui/core/Button';
 
 const styles = (theme => ({
   root: {
@@ -40,7 +41,7 @@ const styles = (theme => ({
 }));
 
 
-const Trophies = ({availableTrophies, completedTrophies, classes}) => {
+const Trophies = ({availableTrophies, selectTrophy, detail, completedTrophies, classes}) => {
   return (
   <Paper className={classes.root}>
     <Typography className={classes.title} variant="h4" component="h2">
@@ -52,7 +53,8 @@ const Trophies = ({availableTrophies, completedTrophies, classes}) => {
         Доступные
       </Typography>
       <Divider light />
-      {availableTrophies.map(({id, title, description}) => {
+      {availableTrophies.map(({id, title, description, points}) => {
+        const onClick = (id) => selectTrophy(id);
         return (
           <ExpansionPanel key={id}>
             <ExpansionPanelSummary
@@ -65,6 +67,9 @@ const Trophies = ({availableTrophies, completedTrophies, classes}) => {
             <ExpansionPanelDetails>
               <Typography>
                 {description}
+                {points >= detail.points && <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
+                 Получить
+                </Button>}
               </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>

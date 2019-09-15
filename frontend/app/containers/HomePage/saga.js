@@ -9,7 +9,7 @@ import {trophiesLoaded, tasksLoaded,detailLoaded} from 'containers/App/actions';
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
 import {effectsSended} from "./actions";
-import { ON_EFFECT } from './constants';
+import { ON_EFFECT, EFFECTS_SENDED } from './constants';
 
 /**
  * Github repos request/response handler
@@ -70,4 +70,5 @@ export default function* data() {
   yield takeEvery(LOAD_TASKS, getTasks);
   yield takeEvery(LOAD_DETAIL, getDetailInfo);
   yield takeEvery(ON_EFFECT, effects);
+  yield takeEvery(EFFECTS_SENDED, getDetailInfo);
 }

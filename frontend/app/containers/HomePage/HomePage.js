@@ -32,12 +32,12 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 
   render() {
-    const {classes, detail, onEffect, tasks, completedTrophies, availableTrophies } = this.props;
+    const {classes, detail, selectTrophy, onEffect, tasks, completedTrophies, availableTrophies } = this.props;
     return (
       <div className={classes.root}>
         <DetailInfo detail={detail}/>
         <Tasks onEffect={onEffect} tasks={tasks}/>
-        <Trophies completedTrophies={completedTrophies} availableTrophies={availableTrophies}/>
+        <Trophies detail={detail} selectTrophy={selectTrophy} completedTrophies={completedTrophies} availableTrophies={availableTrophies}/>
      </div>
     );
   }
@@ -54,7 +54,8 @@ HomePage.propTypes = {
   fetchTrophies: PropTypes.func,
   fetchTasks: PropTypes.func,
   fetchDetailInfo: PropTypes.func,
-  onEffect: PropTypes.func
+  onEffect: PropTypes.func,
+  selectTrophy: PropTypes.func,
 };
 
 export default withStyles(styles)(HomePage);
