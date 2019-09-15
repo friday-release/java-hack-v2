@@ -68,8 +68,6 @@ public class Task {
         if (this.state.cantTransitTo(newState)) {
             this.state = newState;
 
-        } else {
-            throw new InvalidTaskStateException();
         }
     }
 

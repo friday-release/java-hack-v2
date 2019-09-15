@@ -51,12 +51,12 @@ export function* effects({id}) {
   const userId = yield select(makeSelectUsername());
   const requestURL = `http://localhost:8080/api/tenants/123/tasks/${id}/complete`;
   try {
-    debugger;
-    const detail = yield call(request, requestURL,  {method: 'POST', // или 'PUT'
+
+    yield put(effectsSended(id));
+    yield call(request, requestURL,  {method: 'POST', // или 'PUT'
     headers:{
       'Content-Type': 'application/json'
     }});
-    yield put(effectsSended(id));
   } catch(err) {
     //
   }
