@@ -22,6 +22,8 @@ import java.util.List;
 @Slf4j
 public class InitialDataLoader implements CommandLineRunner {
 
+    private static final String TENANT_ID = "123";
+
     @Autowired
     private MongoTemplate mongoTemplate;
 
@@ -39,7 +41,7 @@ public class InitialDataLoader implements CommandLineRunner {
                                 .build()
                 )
                 .build();
-        tenant.setId("123");
+        tenant.setId(TENANT_ID);
         tenant = mongoTemplate.save(tenant);
 
         var tenantId = tenant.getId();
@@ -79,5 +81,41 @@ public class InitialDataLoader implements CommandLineRunner {
 
         long count = this.mongoTemplate.count(new Query(), Trophy.class);
         log.info("DB has been filled with {} entries", count);
+    }
+
+    private void loadTenants() {
+        long tenants = this.mongoTemplate.count(new Query(), Tenant.class);
+        if (0 == tenants) {
+            log.info("Loading tenants");
+
+            // TODO load. user TENANT_ID
+
+            tenants = this.mongoTemplate.count(new Query(), Tenant.class);
+            log.info("DB has been filled with {} tenants", tenants);
+        }
+    }
+
+    private void loadTrophies() {
+        long trophies = this.mongoTemplate.count(new Query(), Trophy.class);
+        if (0 == trophies) {
+            log.info("Loading trophies");
+
+            // TODO load. user TENANT_ID
+
+            trophies = this.mongoTemplate.count(new Query(), Trophy.class);
+            log.info("DB has been filled with {} trophies", trophies);
+        }
+    }
+
+    private void loadTasks() {
+        long tasks = this.mongoTemplate.count(new Query(), Task.class);
+        if (0 == tasks) {
+            log.info("Loading tasks");
+
+            // TODO load. user TENANT_ID
+
+            tasks = this.mongoTemplate.count(new Query(), Task.class);
+            log.info("DB has been filled with {} tasks", tasks);
+        }
     }
 }
