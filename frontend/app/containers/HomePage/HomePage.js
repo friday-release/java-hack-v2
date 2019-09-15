@@ -15,6 +15,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './style.scss';
+import Trophies from 'components/Trophies';
+import Tasks from 'components/Tasks';
 
 const styles = theme => ({
   root: {
@@ -74,7 +76,7 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 
   render() {
-    const {classes, completedTrophies, availableTrophies, error, repos, onChangeUsername, onSubmitForm} = this.props;
+    const {classes, completedTrophies, availableTrophies} = this.props;
 
     const username = 'Рога и копыта';
     return (
@@ -89,67 +91,8 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
                <div><b>Объём доступных средств</b>: 90000 p</div>
                <div><b>Расходы по картам</b>: 100000 p</div>
             </Paper>
-          <Paper className={classes.root}>
-              <div className="item_header">
-                  <div className="item_header__content">
-                    <div className="item_header__content-left-side">Задания</div>
-                  </div>
-                </div>
-               <div><b>ИП</b>: <a >Рога и копыта</a></div>
-               <div><b>Объём доступных средств</b>: 90000 p</div>
-               <div><b>Расходы по картам</b>: 100000 p</div>
-          </Paper>
-          <Paper className={classes.root}>
-                <Typography variant="h3" component="h2">
-                  Награды
-                </Typography>
-                <Divider light />
-                <Typography className="item_head__widget-line" variant="h5" component="h2">
-                  Доступные
-                </Typography>
-                <Divider light />
-                {availableTrophies.map(({id, title, description}) => {
-                    return (
-                      <ExpansionPanel key={id}>
-                      <ExpansionPanelSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <Typography className={classes.heading}>{title}</Typography>
-                      </ExpansionPanelSummary>
-                      <ExpansionPanelDetails>
-                        <Typography>
-                          {description}
-                        </Typography>
-                      </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                    );
-                  })}
-
-                <Typography className="item_head__widget-line"  variant="h5" component="h2">
-                  Полученные
-                </Typography>
-                <Divider light />
-                {completedTrophies.map(({id, title, description}) => {
-                    return (
-                      <ExpansionPanel key={id}>
-                      <ExpansionPanelSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <Typography className={classes.heading}>{title}</Typography>
-                      </ExpansionPanelSummary>
-                      <ExpansionPanelDetails>
-                        <Typography>
-                          {description}
-                        </Typography>
-                      </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                    );
-                  })}
-          </Paper>
+        <Tasks tasks={availableTrophies} />
+        <Trophies completedTrophies={completedTrophies}  availableTrophies={availableTrophies} />
      </div>
     );
   }
@@ -160,9 +103,7 @@ HomePage.propTypes = {
   completedTrophies: PropTypes.array,
   availableTrophies: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  onSubmitForm: PropTypes.func,
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
   fetchTrophies: PropTypes.func,
