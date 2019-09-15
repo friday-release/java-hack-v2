@@ -23,6 +23,8 @@ public class LoyaltyApp {
     @Configuration
     protected static class WebConfig implements WebMvcConfigurer {
 
+        private static final String IMAGE_PATH = "/images/";
+
         @Override
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**")
@@ -35,6 +37,10 @@ public class LoyaltyApp {
             registry.addResourceHandler("/static/**")
                     .addResourceLocations("classpath:public/static/")
                     .setCacheControl(CacheControl.maxAge(365, TimeUnit.DAYS));
+            // non-static images
+            registry.addResourceHandler(IMAGE_PATH + "**")
+                    .addResourceLocations("classpath:" + IMAGE_PATH)
+                    .setCacheControl(CacheControl.maxAge(1, TimeUnit.DAYS));
         }
 
     }
