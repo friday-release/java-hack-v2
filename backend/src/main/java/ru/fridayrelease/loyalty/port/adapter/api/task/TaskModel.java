@@ -27,7 +27,7 @@ public class TaskModel {
     private String description;
 
     @Nullable
-    private TasksModel.TaskModel.ProgressModel progress;
+    private TaskModel.ProgressModel progress;
 
     @Nullable
     private List<String> conditions;
@@ -42,7 +42,7 @@ public class TaskModel {
         this.description = task.getDescription();
         if (null != task.getProgress()) {
             this.progress =
-                    new TasksModel.TaskModel.ProgressModel(task.getProgress().getCurrent(), task.getProgress().getAll());
+                    new TaskModel.ProgressModel(task.getProgress().getCurrent(), task.getProgress().getAll());
         }
         this.conditions = task.getConditions();
         this.category = task.getCategory();
