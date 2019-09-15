@@ -20,7 +20,7 @@ const styles = theme => ({
     width: '100%',
     display: 'flex',
   },
- 
+
 });
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -32,11 +32,11 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
   }
 
   render() {
-    const {classes, detail, tasks, completedTrophies, availableTrophies } = this.props;
+    const {classes, detail, onEffect, tasks, completedTrophies, availableTrophies } = this.props;
     return (
       <div className={classes.root}>
         <DetailInfo detail={detail}/>
-        <Tasks tasks={tasks}/>
+        <Tasks onEffect={onEffect} tasks={tasks}/>
         <Trophies completedTrophies={completedTrophies} availableTrophies={availableTrophies}/>
      </div>
     );
@@ -53,7 +53,8 @@ HomePage.propTypes = {
   onChangeUsername: PropTypes.func,
   fetchTrophies: PropTypes.func,
   fetchTasks: PropTypes.func,
-  fetchDetailInfo: PropTypes.func
+  fetchDetailInfo: PropTypes.func,
+  onEffect: PropTypes.func
 };
 
 export default withStyles(styles)(HomePage);

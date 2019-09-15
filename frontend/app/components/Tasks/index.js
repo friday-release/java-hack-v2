@@ -22,6 +22,10 @@ const styles = (theme => ({
   title: {
     display: 'flex',
     padding: '16px',
+    'padding-top': '0',
+    'padding-left': '0',
+    'line-height': '0.6',
+    'font-size': '1.8rem',
     minHeight: '24px',
     borderBottom: '1px solid #ddd'
   }

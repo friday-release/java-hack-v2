@@ -38,6 +38,6 @@ export function effect(id) {
   }
 }
 
-export function effectsSended() {
-  return {type: EFFECTS_SENDED} 
+export function effectsSended(id) {
+  return {type: EFFECTS_SENDED, id: id};
 }

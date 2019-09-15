@@ -24,6 +24,12 @@ public class Tenant {
     private String id = UUID.randomUUID().toString();
 
     @Nonnull
+    private String tenantTitle;  // ИП Иванов Иван Иванович
+
+    @Nonnull
+    private String brandTitle;   // Рога и копыта
+
+    @Nonnull
     private Profile profile;
 
     @Nonnull

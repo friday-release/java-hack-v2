@@ -15,9 +15,9 @@ function appReducer(state = initialState, action) {
     case LOAD_TROPHIES_SUCCESS:
       return {...state, trophies: action.trophies};
     case LOAD_TASKS_SUCCESS:
-      return {...state, tasks: action.tasks.filter(task => action.id !== task.id)};
-    case EFFECTS_SENDED:
       return {...state, tasks: action.tasks};
+    case EFFECTS_SENDED:
+      return {...state, tasks: action.tasks.filter(task => action.id !== task.id)};
     case LOAD_DETAIL_SUCCESS:
       return {...state, detail: action.detail};
     default:

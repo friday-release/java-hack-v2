@@ -43,12 +43,12 @@ public class InitialDataLoader implements CommandLineRunner {
             log.info("Loading tenants");
 
             var tenant = Tenant.builder()
+                    .brandTitle("Братья Караваевы")
+                    .tenantTitle("ИП Петр Караваев")
                     .ogrn("11111111111111")
                     .points(480)
                     .profile(
                             Tenant.Profile.builder()
-                                    .firstName("Ivan")
-                                    .lastName("Petrov")
                                     .avatarUrl("http://localhost:8080/images/harold.jpg")
                                     .build()
                     )

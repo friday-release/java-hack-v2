@@ -17,6 +17,10 @@ const styles = (theme => ({
   title: {
     display: 'flex',
     padding: '16px',
+    paddingTop: '0',
+    paddingLeft: '0',
+    lineHeight: '0.6',
+    fontSize: '1.8rem',
     minHeight: '24px',
     borderBottom: '1px solid #ddd'
   }
@@ -29,9 +33,14 @@ const DetailInfo = ({detail, classes}) => {
         Карма
       </Typography>
       <Divider light />
-      <div><b> Баллы</b>{detail.points && detail.points}</div>
+      <div style={{
+        'font-size': '1.3rem',
+        'line-height': '1.9'
+      }}>{detail.tenantTitle}</div>
+      <div><b>Бренд </b>{detail.brandTitle}</div>
+      <div><b>ОГРН </b>{detail.ogrn}</div>
+      <div><b>Баллы </b>{detail.points}</div>
 
-      <div><b>Имя</b>{detail.profile && detail.profile.firstName}</div>
     </Paper>
   )};
 

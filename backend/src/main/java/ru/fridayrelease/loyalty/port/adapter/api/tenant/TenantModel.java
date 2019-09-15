@@ -11,6 +11,10 @@ class TenantModel {
     @Nonnull
     private String id;
 
+    private String brandTitle;
+
+    private String tenantTitle;
+
     @Nonnull
     private ProfileModel profile;
 
@@ -21,6 +25,8 @@ class TenantModel {
 
     TenantModel(Tenant tenant) {
         this.id = tenant.getId();
+        this.brandTitle = tenant.getBrandTitle();
+        this.tenantTitle = tenant.getTenantTitle();
         this.ogrn = tenant.getOgrn();
         this.points = tenant.getPoints();
         this.profile = new ProfileModel(tenant.getProfile());
@@ -33,9 +39,12 @@ class TenantModel {
 
         private String lastName;
 
+        private String avatarUrl;
+
         ProfileModel(Tenant.Profile profile) {
             this.firstName = profile.getFirstName();
             this.lastName = profile.getLastName();
+            this.avatarUrl = profile.getAvatarUrl();
         }
     }
 }
