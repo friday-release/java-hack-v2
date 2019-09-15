@@ -4,7 +4,14 @@ import './style.scss';
 class LeftSideBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-     <left-sidebar className="left-sidebar" style={{width: "80px", left: '0', top: '100px', position: 'absolute'}}>
+     <left-sidebar className="left-sidebar" style={{
+       width: "80px",
+       left: '0',
+       top: '100px',
+       position: 'absolute',
+       height: '100%',
+       backgroundColor: 'white'
+     }}>
        <nav className="left-sidebar__nav">
          <a className="left-sidebar__item" routerlink="/cards" routerlinkactive="left-sidebar__item_active" href="#/cards"><icon-cards className="left-sidebar__icon icon"><div className="rc-icon-svg rc-icon-svg_cards rc-icon-svg_active rc-icon-svg_to-active rc-icon-svg_cards-to-active"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fillRule="evenodd"><path d="M6 20h16v-8H6v8zm0-10h16V8H6v2zm16.093-4H5.907A1.909 1.909 0 0 0 4 7.907v12.186C4 21.145 4.855 22 5.907 22h16.186A1.909 1.909 0 0 0 24 20.093V7.907A1.909 1.909 0 0 0 22.093 6z"></path><path d="M16 16h4v-2h-4zM2 18h-.093A1.909 1.909 0 0 1 0 16.093V3.907C0 2.855.855 2 1.907 2h16.186C19.145 2 20 2.855 20 3.907l-1.933.09a.109.109 0 0 0 .026.003H2v12.093A.093.093 0 0 0 1.907 16L2 18z"></path></g></svg></div></icon-cards><span className="left-sidebar__label">Карты</span></a>
          <a className="left-sidebar__item" routerlink="/accounts" routerlinkactive="left-sidebar__item_active" href="#/accounts"><icon-accounts className="left-sidebar__icon icon"><div className="rc-icon-svg rc-icon-svg_accounts"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fillRule="evenodd"><path d="M5 5v18h16v-7h-2v5H7V7h12v9h2V5z"></path><path d="M1 1v18h2V3h14V1z"></path><path d="M9 12h6v-2H9zM9 16h6v-2H9z"></path></g></svg></div></icon-accounts><span className="left-sidebar__label">Счета</span></a>
