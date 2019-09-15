@@ -13,7 +13,7 @@ const useHeaderStyles = makeStyles(theme => ({
   headerTop: {
     backgroundColor: '#ffdb00',
     paddingTop: '30px',
-    height: '100px'
+    height: '50px'
   },
   logo: {
     backgroundColor: 'green'
