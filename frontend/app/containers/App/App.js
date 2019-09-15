@@ -11,12 +11,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import Header from 'components/Header';
 import HomePage from 'containers/HomePage/Loadable';
+import LeftSideBar from 'components/LeftSidebar';
 import './style.scss';
 
 const App = () => (
   <div className="layout">
-    {/* <LeftSideBar /> */}
     <Header/>
+    <LeftSideBar/>
     <Switch>
       <Route exact path="/" component={HomePage} />
     </Switch>
