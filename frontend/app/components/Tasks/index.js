@@ -17,7 +17,7 @@ const styles = (theme => ({
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight:600,
   },
   title: {
     display: 'flex',
@@ -30,7 +30,9 @@ const styles = (theme => ({
     borderBottom: '1px solid #ddd'
   },
   button: {
-    backgroundColor: '#ffdb00'
+    marginTop: 20,
+    backgroundColor: '#ffdb00',
+    color: '#000000'
   }
 }));
 

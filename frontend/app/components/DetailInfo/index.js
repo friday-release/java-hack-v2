@@ -37,9 +37,9 @@ const DetailInfo = ({detail, classes}) => {
         'font-size': '1.3rem',
         'line-height': '1.9'
       }}>{detail.tenantTitle}</div>
-      <div><b>Бренд </b>{detail.brandTitle}</div>
-      <div><b>ОГРН </b>{detail.ogrn}</div>
-      <div><b>Баллы </b>{detail.points}</div>
+      <div style={{padding: 15}}><b>Бренд </b>{detail.brandTitle}</div>
+      <div style={{padding: 15}}><b>ОГРНИП </b>{detail.ogrn}</div>
+      <div style={{padding: 15}}><b>Баллы </b>{detail.points}</div>
 
     </Paper>
   )};

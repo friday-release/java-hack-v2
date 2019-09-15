@@ -43,7 +43,7 @@ const Header = () => {
         <Link to="/invoices">
           <div className={classes.logo} />
         </Link>
-        <div>Райффайзен банк</div>
+        <div style={{textAlign: 'center'}}>Райффайзен банк</div>
       </div>
       <Grid container spacing={0}>
         <Grid item xs={12} className={classes.gridContainer}>
@@ -53,7 +53,7 @@ const Header = () => {
             <Button className={classes.navItem}>История операций</Button>
             <Button className={classes.navItem}>Шаблоны и автоплатежи</Button>
             <Button className={classes.navItem}>Кредиты</Button>
-            <Button className={classes.navItem}>Депозиты</Button>
+            <Button className={classes.navItem}>Депозиты </Button>
           </ButtonGroup>
         </Grid>
       </Grid>

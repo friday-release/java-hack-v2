@@ -17,7 +17,7 @@ const styles = (theme => ({
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight:600,
   },
   title: {
     display: 'flex',
@@ -37,6 +37,9 @@ const styles = (theme => ({
   },
   dividerTitle: {
     paddingTop: '24px',
+  },
+  button: {
+    marginTop: 20
   }
 }));
 
