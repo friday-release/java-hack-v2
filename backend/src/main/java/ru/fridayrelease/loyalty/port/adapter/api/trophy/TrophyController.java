@@ -25,7 +25,7 @@ public class TrophyController {
         var trophies = this.trophyRepository
                 .findAll().stream()
                 .filter(trophy -> trophy.getTenantId().equals(tenantId))
-                .map(TrophiesModel.TrophyModel::new)
+                .map(TrophyModel::new)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(trophies);
     }
