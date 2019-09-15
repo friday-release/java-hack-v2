@@ -29,8 +29,8 @@ function appReducer(state = initialState, action) {
       const trophies = state.trophies;
       const trophyIdx = trophies.findIndex(item => action.id === item.id);
       const newTrophy = {...trophies[trophyIdx], state: STATE.COMPLETED};
-      const newTrophies = [...trophies].splice(trophyIdx, 1, newTrophy);
-      return {...state, trophies: newTrophies}
+      trophies.splice(trophyIdx, 1, newTrophy);
+      return {...state, trophies: [...trophies]}
     }
     default:
       return state;

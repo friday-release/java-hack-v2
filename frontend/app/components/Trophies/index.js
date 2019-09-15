@@ -59,7 +59,7 @@ const Trophies = ({availableTrophies, selectTrophy, detail, completedTrophies, c
       </Typography>
       <Divider light />
       {availableTrophies.map(({id, title, description, points}) => {
-        const onClick = (id) => selectTrophy(id);
+        const onClick = () => selectTrophy(id);
         return (
           <ExpansionPanel key={id}>
             <ExpansionPanelSummary
