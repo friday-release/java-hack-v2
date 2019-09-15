@@ -39,6 +39,7 @@ public class InitialDataLoader implements CommandLineRunner {
                                 .build()
                 )
                 .build();
+        tenant.setId("123");
         tenant = mongoTemplate.save(tenant);
 
         var tenantId = tenant.getId();
