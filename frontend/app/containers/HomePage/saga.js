@@ -9,7 +9,7 @@ import {trophiesLoaded, tasksLoaded,detailLoaded} from 'containers/App/actions';
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
 import {effectsSended} from "./actions";
-import { ON_EFFECT, EFFECTS_SENDED } from './constants';
+import { ON_EFFECT, EFFECTS_SENDED, GET_TROPHY, TROPHY_SENDED } from './constants';
 
 /**
  * Github repos request/response handler
@@ -62,6 +62,22 @@ export function* effects({id}) {
   }
 }
 
+
+export function* changeTrophy({id}) {
+  const userId = yield select(makeSelectUsername());
+  const requestURL = `http://localhost:8080/api/tenants/123/tasks/${id}/complete`;
+  try {
+
+    yield put(effectsSended(id));
+    yield call(request, requestURL,  {method: 'POST', // или 'PUT'
+      headers:{
+        'Content-Type': 'application/json'
+      }});
+  } catch(err) {
+    //
+  }
+}
+
 /**
  * Root saga manages watcher lifecycle
  */
@@ -71,4 +87,5 @@ export default function* data() {
   yield takeEvery(LOAD_DETAIL, getDetailInfo);
   yield takeEvery(ON_EFFECT, effects);
   yield takeEvery(EFFECTS_SENDED, getDetailInfo);
+  yield takeEvery(GET_TROPHY, changeTrophy);
 }

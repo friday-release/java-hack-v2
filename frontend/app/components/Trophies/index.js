@@ -67,7 +67,7 @@ const Trophies = ({availableTrophies, selectTrophy, detail, completedTrophies, c
             <ExpansionPanelDetails>
               <Typography>
                 {description}
-                {points >= detail.points && <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
+                { detail.points >= points && <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
                  Получить
                 </Button>}
               </Typography>
