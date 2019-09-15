@@ -13,3 +13,7 @@ export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
 
 export const ON_EFFECT = 'boilerplate/Home/ON_EFFECT';
 export const EFFECTS_SENDED = 'boilerplate/Home/EFFECTS_SENDED';
+
+
+export const GET_TROPHY = 'boilerplate/Home/GET_TROPHY';
+export const TROPHY_SENDED = 'boilerplate/Home/TROPHY_SENDED';

@@ -10,7 +10,7 @@ import {
   detail
 } from 'containers/App/selectors';
 import { loadTrophies, loadTasks, loadDetail } from 'containers/App/actions';
-import { changeUsername, effect } from './actions';
+import { changeUsername, effect, selectTrophy } from './actions';
 import { makeSelectUsername  } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -22,6 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchTasks: () => dispatch(loadTasks()),
   fetchDetailInfo: () => dispatch(loadDetail()),
   onEffect: (id) => dispatch(effect(id)),
+  selectTrophy: (id) => dispatch(selectTrophy(id))
 });
 
 const mapStateToProps = createStructuredSelector({

@@ -53,7 +53,7 @@ const Tasks = ({tasks, classes, onEffect}) => {
             <ExpansionPanelDetails>
               <Typography>
                 {description}
-                <Button variant="contained" onClick={onClick} color="primary" className={classes.button}>
+                <Button variant="contained" onClick={onClick} color="secondary" className={classes.button}>
                   Выполнить
                 </Button>
               </Typography>

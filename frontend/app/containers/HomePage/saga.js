@@ -9,7 +9,7 @@ import {trophiesLoaded, tasksLoaded,detailLoaded} from 'containers/App/actions';
 import request from 'utils/request';
 import {makeSelectUsername} from 'containers/HomePage/selectors';
 import {effectsSended} from "./actions";
-import { ON_EFFECT } from './constants';
+import { ON_EFFECT, EFFECTS_SENDED } from './constants';
 
 /**
  * Github repos request/response handler
@@ -51,12 +51,12 @@ export function* effects({id}) {
   const userId = yield select(makeSelectUsername());
   const requestURL = `http://134.209.134.214/api/tenants/123/tasks/${id}/complete`;
   try {
-    debugger;
-    const detail = yield call(request, requestURL,  {method: 'POST', // или 'PUT'
+
+    yield put(effectsSended(id));
+    yield call(request, requestURL,  {method: 'POST', // или 'PUT'
     headers:{
       'Content-Type': 'application/json'
     }});
-    yield put(effectsSended(id));
   } catch(err) {
     //
   }
@@ -70,4 +70,5 @@ export default function* data() {
   yield takeEvery(LOAD_TASKS, getTasks);
   yield takeEvery(LOAD_DETAIL, getDetailInfo);
   yield takeEvery(ON_EFFECT, effects);
+  yield takeEvery(EFFECTS_SENDED, getDetailInfo);
 }

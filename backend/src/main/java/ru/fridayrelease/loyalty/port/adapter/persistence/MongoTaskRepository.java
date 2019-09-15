@@ -28,7 +28,7 @@ public class MongoTaskRepository implements TaskRepository {
 
     @Override
     public void add(@Nonnull Task task) {
-        this.mongoTemplate.insert(task);
+        this.mongoTemplate.save(task);
     }
 
     @Nonnull
